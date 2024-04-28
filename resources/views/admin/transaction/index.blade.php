@@ -35,16 +35,7 @@
                                             <input type="text" name="code_no" class="form-control mg-r-15" placeholder="Mã giao dịch">
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-2">
-                                        <div class="form-group">
-                                            <input type="date" name="start_day" class="form-control mg-r-15" value="{{ date('Y-m-d', strtotime(request('start_day'))) }}">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-2">
-                                        <div class="form-group">
-                                            <input type="date" name="end_day" class="form-control mg-r-15" value="{{ date('Y-m-d', strtotime(request('end_day'))) }}">
-                                        </div>
-                                    </div>
+                                    
                                     <div class="col-sm-12 col-md-2">
                                         <div class="form-group">
                                             <select name="status" class="form-control mg-r-15">

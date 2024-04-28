@@ -29,7 +29,6 @@ class PlaneRequest extends FormRequest
             'name' => 'required | max:191 | unique:planes,name,'.$this->id,
             'airline_company_id' => 'required',
             'number_seats' => 'required',
-            'code_seats' => 'required',
         ];
     }
 
@@ -44,7 +43,6 @@ class PlaneRequest extends FormRequest
             'code_no.max' => 'Vượt quá số ký tự cho phép',
             'airline_company_id.required' => 'Dữ liệu không thể để trống',
             'number_seats.required' => 'Dữ liệu không thể để trống',
-            'code_seats.required' => 'Dữ liệu không thể để trống',
         ];
     }
 }

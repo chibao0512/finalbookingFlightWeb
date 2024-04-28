@@ -8,7 +8,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group {{ $errors->first('code_no') ? 'has-error' : '' }} col-md-6">
-                                <label for="inputEmail3" class="control-label default">Mã hãng máy bay <sup class="text-danger">(*)</sup></label>
+                                <label for="inputEmail3" class="control-label default">Airline Code <sup class="text-danger">(*)</sup></label>
                                 <div>
                                     <input type="text" maxlength="100" class="form-control"  placeholder="Mã hãng máy bay" name="code_no" value="{{ old('code_no',isset($airlineCompany) ? $airlineCompany->code_no : '') }}">
                                     <span class="text-danger "><p class="mg-t-5">{{ $errors->first('code_no') }}</p></span>
