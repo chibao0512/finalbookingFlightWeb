@@ -27,8 +27,8 @@
                 </li>
                 <!-- Menu Footer-->
                 <li class="user-footer">
-                    <a href="{{ route('profile.index') }}" class="btn btn-default btn-flat">Hồ sơ</a>
-                    <a href="{{ route('admin.logout') }}" class="btn btn-default btn-flat float-right">Đăng xuất</a>
+                    <a href="{{ route('profile.index') }}" class="btn btn-default btn-flat">Profile</a>
+                    <a href="{{ route('admin.logout') }}" class="btn btn-default btn-flat float-right">Sign out</a>
                 </li>
             </ul>
         </li>

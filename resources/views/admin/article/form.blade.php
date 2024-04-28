@@ -7,9 +7,9 @@
                     <!-- form start -->
                     <div class="card-body">
                         <div class="form-group {{ $errors->first('name') ? 'has-error' : '' }} ">
-                            <label for="inputEmail3" class="control-label default">Tiêu đề bài viết <sup class="text-danger">(*)</sup></label>
+                            <label for="inputEmail3" class="control-label default">Title <sup class="text-danger">(*)</sup></label>
                             <div>
-                                <input type="text" maxlength="180" class="form-control"  placeholder="Tiêu đề bài viết" name="name" value="{{ old('name',isset($article) ? $article->name : '') }}">
+                                <input type="text" maxlength="180" class="form-control"  placeholder="Title" name="name" value="{{ old('name',isset($article) ? $article->name : '') }}">
                                 <span class="text-danger "><p class="mg-t-5">{{ $errors->first('name') }}</p></span>
                             </div>
                         </div>
@@ -17,9 +17,9 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-6">
                                 <div class="form-group">
-                                    <label>Danh mục <sup class="text-danger">(*)</sup></label>
+                                    <label>Category <sup class="text-danger">(*)</sup></label>
                                     <select class="custom-select" name="category_id">
-                                        <option value="">Chọn danh mục</option>
+                                        <option value="">Choose category</option>
                                         @foreach($categories as $category)
                                             <option
                                                     {{old('category_id', isset($article->category_id ) ? $article->category_id  : '') == $category->id ? 'selected="selected"' : ''}}
@@ -34,7 +34,7 @@
                             </div>
                             <div class="col-sm-12 col-md-6">
                                 <div class="form-group">
-                                    <label>Trạng thái</label>
+                                    <label>Status</label>
                                     <select class="custom-select" name="status">
                                         @foreach($actives as $key => $active)
                                             <option
@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="form-group {{ $errors->first('description') ? 'has-error' : '' }} ">
-                            <label for="inputEmail3" class="control-label default">Mô tả ngắn </label>
+                            <label for="inputEmail3" class="control-label default">Short Description </label>
                             <div>
                                 <textarea name="description" id="description" cols="30" rows="10" class="form-control" style="height: 225px;">{{ old('description', isset($article) ? $article->description : '') }}</textarea>
                                 @if ($errors->first('description'))
@@ -60,7 +60,7 @@
                             </div>
                         </div>
                         <div class="form-group {{ $errors->first('contents') ? 'has-error' : '' }} ">
-                            <label for="inputEmail3" class="control-label default">Nội dung bài viết </label>
+                            <label for="inputEmail3" class="control-label default">Content </label>
                             <div>
                                 <textarea name="contents" id="contents" cols="30" rows="10" class="form-control" style="height: 225px;">{{ old('contents', isset($article) ? $article->contents : '') }}</textarea>
                                 <script>
@@ -78,14 +78,14 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title"> Xuất bản</h3>
+                        <h3 class="card-title"> Action</h3>
                     </div>
                     <div class="card-body">
                         <div class="btn-set">
                             <button type="submit" name="submit" class="btn btn-info">
-                                <i class="fa fa-save"></i> Lưu dữ liệu
+                                <i class="fa fa-save"></i> Save data
                             </button>
-                            <a href="{{ route('article.index') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Quay lại</a>
+                            <a href="{{ route('article.index') }}" class="btn btn-danger"><i class="fa fa-undo"></i>Back</a>
                         </div>
                     </div>
                     <div class="card-header">
@@ -95,9 +95,9 @@
                         <div class="form-group">
                             <div class="input-group input-file" name="images">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default btn-choose" type="button">Chọn tệp</button>
+                                    <button class="btn btn-default btn-choose" type="button">Choose file</button>
                                 </span>
-                                <input type="text" class="form-control" placeholder='Không có tệp nào ...'/>
+                                <input type="text" class="form-control" placeholder='No file choosing ...'/>
                                 <span class="input-group-btn"></span>
                             </div>
                             <span class="text-danger "><p class="mg-t-5">{{ $errors->first('images') }}</p></span>

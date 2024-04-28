@@ -2,13 +2,13 @@
     <table class="table table-borderless">
         <tbody>
             <tr>
-                <td>Họ và tên</td>
+                <td>Full name</td>
                 <td>{{ $user->full_name }}</td>
                 <td>Phone</td>
                 <td>{{ $user->phone }}</td>
             </tr>
             <tr>
-                <td>Ngày sinh</td>
+                <td>Day of birth</td>
                 <td>{{ $user->birthday }}</td>
                 <td>Giới tính</td>
                 <td>{{ $gender[$user->gender] }}</td>

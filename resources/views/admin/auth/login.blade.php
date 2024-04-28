@@ -3,12 +3,12 @@
 @section('content')
     <div class="login-box">
         <div class="login-logo">
-            <a href="#"><b>Đăng nhập</b></a>
+            <a href="#"><b>Sign in</b></a>
     </div>
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Đăng nhập để bắt đầu phiên làm việc</p>
+                <p class="login-box-msg">Sign in</p>
                 @if (session('danger'))
                     <p class="login-box-msg text-danger">{{ session('danger') }}</p>
                 @endif
@@ -49,7 +49,7 @@
                     </div>
                 </form>
                 <div class="social-auth-links text-center mb-3">
-                    {{--<p>Chưa có tài khoản? <a href="">Đăng ký</a> </p>--}}
+                    {{--<p>Don't have a acccount <a href="">Sign up</a> </p>--}}
 
                 </div>
             </div>

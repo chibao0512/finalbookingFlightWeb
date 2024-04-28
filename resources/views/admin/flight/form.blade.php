@@ -10,7 +10,7 @@
                             <div class="form-group {{ $errors->first('plane_id') ? 'has-error' : '' }} col-md-6">
                                 <label for="inputEmail3" class="control-label default">Máy bay <sup class="text-danger">(*)</sup></label>
                                 <select class="custom-select select2" name="plane_id">
-                                    <option value="">Chọn hãng máy bay</option>
+                                    <option value="">Choose airline</option>
                                     @foreach($planes as $plane)
                                         <option
                                                 {{old('plane_id', isset($flight->plane_id) ? $flight->plane_id : '') == $plane->id ? 'selected="selected"' : ''}}
