@@ -1,0 +1,14 @@
+Admin
+Quản lý địa điểm
+Quản lý hãng  máy bay
+Quản lý máy bay
+Quản lý loại vé
+Quản lý xếp lịch chuyến bay (Hiện tại phát triển thêm bằng tay)
+Quản lý người dùng đặt vé máy bay
+Thống kê
+Người dùng
+Hiển thị danh sách vé máy bay, tìm kiếm vé thay điểm đi điểm đến ngày bay
+Đặt vé máy bay, xem lại thông tin vé
+(Bên e có cần làm thanh toán k ? hoặc hiện tại chỉ làm thanh toán tại quầy)
+Đăng ký đăng nhập, quản lý thông tin 
+Thanh toán online

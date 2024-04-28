@@ -1,0 +1,150 @@
+@extends('admin.layouts.main')
+@section('title', '')
+@section('content')
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-left">
+                        <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"> <i class="nav-icon fas fa fa-home"></i> Trang chủ</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('flight.index') }}">Chuyến bay</a></li>
+                        <li class="breadcrumb-item active">Danh sách</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="card card-default">
+                        <div class="card-header card-header-border-bottom">
+                            <h3 class="card-title">Form tìm kiếm</h3>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <form action="">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-3">
+                                        <div class="form-group">
+                                            <input type="text" name="code_no" class="form-control mg-r-15" placeholder="Mã chuyến bay">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-2">
+                                        <div class="form-group">
+                                            <input type="date" name="start_day" class="form-control mg-r-15" value="{{ date('Y-m-d', strtotime(request('start_day'))) }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-2">
+                                        <div class="form-group">
+                                            <input type="date" name="end_day" class="form-control mg-r-15" value="{{ date('Y-m-d', strtotime(request('end_day'))) }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-3">
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-success " style="margin-right: 10px"><i class="fas fa-search"></i> Tìm kiếm </button>
+                                            <a href="{{ route('flight.index') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Reload</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-tools">
+                                <div class="btn-group">
+                                    <a href="{{ route('flight.create') }}"><button type="button" class="btn btn-block btn-info"><i class="fa fa-plus"></i> Tạo mới</button></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-hover text-nowrap table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th width="4%" class=" text-center">STT</th>
+                                        <th>Chuyến bay</th>
+                                        <th>Thông tin</th>
+                                        <th>Thời gian bay</th>
+                                        <th>Thông tin giá</th>
+                                        <th>Loại vé</th>
+                                        <th>Trạng thái</th>
+                                        <th class=" text-center">Hành động</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (!$flights->isEmpty())
+                                        @php $i = $flights->firstItem(); @endphp
+                                        @foreach($flights as $flight)
+                                            <tr>
+                                                <td style="vertical-align: middle; width:3%;" class=" text-center">{{ $i }}</td>
+                                                <td style="vertical-align: middle; width:15%;">
+                                                    <p>Mã : {{ $flight->code_no }}</p>
+                                                    <p>Chuyến bay : {{ isset($flight->plane) ? $flight->plane->name : '' }}</p>
+                                                    <p>Hãng máy bay : {{ isset($flight->plane) && isset($flight->plane->airline_company) ? $flight->plane->airline_company->name : '' }}</p>
+                                                </td>
+                                                <td style="vertical-align: middle; width:15%;">
+                                                    <p>Điểm đi : {{ isset($flight->start_location) ? $flight->start_location->name : '' }}</p>
+                                                    <p>Sân bay : {{ isset($flight->start_airport) ? $flight->start_airport->name : '' }}</p>
+                                                    <p>Điểm đến : {{ isset($flight->start_location) ? $flight->end_location->name : '' }}</p>
+                                                    <p>Sân bay : {{ isset($flight->end_airport) ? $flight->end_airport->name : '' }}</p>
+                                                    <p>Thời gian bay : {{ diffTimeRun($flight->start_day, $flight->end_day) }} phút</p>
+                                                </td>
+                                                <td style="vertical-align: middle; width:15%; text-align: center">
+                                                   {{ convertDatetimeLocal($flight->start_day) }}
+                                                    <p><i class="fa fa-fw fa-arrow-down"></i></p>
+                                                    {{ convertDatetimeLocal($flight->end_day) }}
+
+                                                </td>
+                                                <td style="vertical-align: middle;">
+                                                    <p>Giá : {{ number_format($flight->price,0,',','.') }} vnđ</p>
+                                                    <p>Giá víp : {{ number_format($flight->price_vip,0,',','.') }} vnđ</p>
+                                                    <p> GV trẻ sơ sinh : {{ number_format($flight->baby_ticket,0,',','.') }} vnđ</p>
+                                                    <p>Thuế : {{ $flight->tax_percentage }}</p>
+                                                    <p>Phụ phí : {{ number_format($flight->expense,0,',','.') }} vnđ</p>
+                                                </td>
+                                                <td style="vertical-align: middle;">
+                                                    {{ isset($types[$flight->type]) ? $types[$flight->type] : '' }}
+                                                </td>
+                                                <td style="vertical-align: middle;">
+                                                    <button type="button" class="btn btn-block {{ $classStatus[$flight->status] }} btn-xs">{{ $status[$flight->status] }}</button>
+                                                </td>
+                                                <td class="text-center" style="vertical-align: middle; width:15%;">
+                                                    <a class="btn btn-primary btn-sm" href="{{ route('flight.update', $flight->id) }}">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </a>
+                                                    <a class="btn btn-danger btn-sm btn-delete btn-confirm-delete" href="{{ route('flight.delete', $flight->id) }}">
+                                                        <i class="fas fa-trash"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            @php $i++ @endphp
+                                        @endforeach
+                                    @endif
+                                </tbody>
+                            </table>
+                            @if($flights->hasPages())
+                                <div class="pagination float-right margin-20">
+                                    {{ $flights->appends($query = '')->links() }}
+                                </div>
+                            @endif
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+        </div>
+    </section>
+@stop
