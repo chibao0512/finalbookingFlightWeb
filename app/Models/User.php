@@ -38,8 +38,8 @@ class User extends Authenticatable implements JWTSubject
     ];
 
     const STATUS = [
-        1 => 'Hoạt động',
-        2 => 'Đã khóa'
+        1 => 'Working',
+        2 => 'Locked'
     ];
 
     const CLASS_STATUS = [
@@ -48,9 +48,9 @@ class User extends Authenticatable implements JWTSubject
     ];
 
     const GENDERS = [
-        1 => 'Nam',
-        2 => 'Nữ',
-        3 => 'Không xác định'
+        1 => 'Male',
+        2 => 'Female',
+        3 => 'Etc'
     ];
 
     const ACTIVE  = 1;
