@@ -1,6 +1,6 @@
 @extends('page.layouts.page')
-@php $title =  isset($article) ? $article->name : 'Tin tức' @endphp
-@section('title', 'ABAY.VN - '. $title)
+@php $title =  isset($article) ? $article->name : 'News' @endphp
+@section('title', 'B-Air - '. $title)
 @section('style')
 @stop
 @section('content')

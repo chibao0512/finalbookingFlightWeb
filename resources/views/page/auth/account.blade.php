@@ -1,5 +1,5 @@
 @extends('page.layouts.page')
-@php $title =  'ABAY.VN - Thông tin tài khoản' @endphp
+@php $title =  'B-Air - Account information' @endphp
 @section('title', $title)
 @section('style')
 @stop
@@ -10,7 +10,7 @@
             <div class="row">
                 @include('page.common.sidebar_user')
                 <div class="col-sm-12 col-lg-10 pr-lg-4">
-                    <h3 class="heading-3">Thông tin tài khoản</h3>
+                    <h3 class="heading-3">Account information</h3>
                     <div class="row">
                         <div class="col-md-12">
                             <form method="post" action="{{ route('update.info.account') }}">

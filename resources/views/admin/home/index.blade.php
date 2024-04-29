@@ -1,5 +1,5 @@
 @extends('admin.layouts.main')
-@section('title', 'Quản lý ')
+@section('title', 'Dashboad Satistics')
 @section('style-css')
     <!-- fullCalendar -->
 @stop

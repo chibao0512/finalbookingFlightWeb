@@ -1,5 +1,5 @@
 @extends('page.layouts.page')
-@php $title =  'ABAY.VN - ĐĂNG KÝ' @endphp
+@php $title =  'B-Air - Sign up' @endphp
 @section('title', $title)
 @section('style')
 @stop

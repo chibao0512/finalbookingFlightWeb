@@ -14,8 +14,8 @@ class Article extends Model
     public $timestamps = true;
 
     const ACTIVES = [
-        1 => 'Xuất bản',
-        2 => 'Bản nháp'
+        1 => 'Publish',
+        2 => 'Draff'
     ];
     protected $fillable = [
         'name',

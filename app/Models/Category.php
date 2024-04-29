@@ -14,13 +14,13 @@ class Category extends Model
 
 
      const STATUS = [
-         0 => 'Bản nháp',
-         1 => 'Hiển thị'
+         0 => 'Draff',
+         1 => 'Display'
      ];
 
     const SHOW_HOME = [
-        0 => 'Ẩn',
-        1 => 'Hiển thị'
+        0 => 'Hide',
+        1 => 'Display'
     ];
 
     protected $fillable = ['name', 'parent_id', 'slug', 'status', 'show_home'];

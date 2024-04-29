@@ -24,8 +24,8 @@ class AirlineCompany extends Model
     ];
 
     const SHOW_HOME = [
-        0 => 'Ẩn',
-        1 => 'Hiển thị'
+        0 => 'Hide',
+        1 => 'Display',
     ];
 
     /**

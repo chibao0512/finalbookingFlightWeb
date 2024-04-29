@@ -17,11 +17,11 @@ class Transaction extends Model
     const VNP_TMN_CODE = "B6D7F86K";
 
     const STATUS = [
-        1 => 'Đang xử lý',
-        2 => 'Chờ thanh toán',
-        3 => 'Đã thanh toán',
-        4 => 'Đã hủy',
-        5 => 'Chờ xử lý'
+        1 => 'Processing',
+        2 => 'Wait for payment',
+        3 => 'Completly payment',
+        4 => 'Cancelled',
+        5 => 'Waiting for progressing'
     ];
 
     const CLASS_STATUS = [

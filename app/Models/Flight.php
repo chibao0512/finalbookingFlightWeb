@@ -13,8 +13,8 @@ class Flight extends Model
     public $timestamps = true;
 
     const STATUS = [
-        1 => 'Hoạt động',
-        2 => 'Tạm ngưng',
+        1 => 'Work',
+        2 => 'Pause',
     ];
 
     const CLASS_STATUS = [

@@ -1,5 +1,5 @@
 @extends('page.layouts.page')
-@php $title =  'ABAY.VN - ĐĂNG NHẬP' @endphp
+@php $title =  'B-Air - Sign in' @endphp
 @section('title', $title)
 @section('style')
 @stop
@@ -22,22 +22,22 @@
                         @endif
                         @csrf
                         <div class="form-group">
-                            <label class="text-label">Email sign in</label>
-                            <input class="form-control" type="email" name="email" placeholder="Email sign in">
+                            <label class="text-label">Email </label>
+                            <input class="form-control" type="email" name="email" placeholder="Email ">
                             @if ($errors->first('email'))
                                 <span class="text-danger">{{ $errors->first('email') }}</span>
                             @endif
                         </div>
                         <div class="form-group">
-                            <label class="text-label">Password sign in</label>
-                            <input type="password" name="password" class="form-control"  placeholder="Password sign in">
+                            <label class="text-label">Password </label>
+                            <input type="password" name="password" class="form-control"  placeholder="Password ">
                             @if ($errors->first('password'))
                                 <span class="text-danger">{{ $errors->first('password') }}</span>
                             @endif
                         </div>
                         <div class="col-md-12 text-center">
                             <button type="submit" class="btn btn-primary py-3 px-5">sign in</button>
-                            <p style="margin-top: 15px">Chưa có tài khoản ? <a href="{{ route('user.page.register') }}">Đăng ký</a></p>
+                            <p style="margin-top: 15px">Not have account ? <a href="{{ route('user.page.register') }}">Sign up</a></p>
                         </div>
                     </form>
 

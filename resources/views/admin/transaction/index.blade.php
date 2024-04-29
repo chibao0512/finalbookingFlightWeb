@@ -1,5 +1,5 @@
 @extends('admin.layouts.main')
-@section('title', 'Danh sách đặt vé')
+@section('title', 'List booking tickets')
 @section('content')
     <section class="content-header">
         <div class="container-fluid">

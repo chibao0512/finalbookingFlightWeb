@@ -13,9 +13,9 @@ class Plane extends Model
     public $timestamps = true;
 
     const STATUS = [
-        1 => 'Hoạt động',
-        2 => 'Bảo trì',
-        3 => 'Đã bị hỏng'
+        1 => 'Work',
+        2 => 'Maintenance',
+        3 => 'Was broken'
     ];
 
     const CLASS_STATUS = [

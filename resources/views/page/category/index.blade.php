@@ -1,6 +1,6 @@
 @extends('page.layouts.page')
 @php $title =  isset($category) ? $category->name : 'Tin tức' @endphp
-@section('title', 'ABAY.VN - '. $title)
+@section('title', 'B-Air- '. $title)
 @section('style')
 @stop
 @section('content')
@@ -21,7 +21,7 @@
                                         {{ the_excerpt($article->description, 200) }}
                                     </p>
                                     <span class="seen">{{ getDateTime($language = "vn", $getDay = 1, $getDate = 1, $getTime = 0, $timeZone = "GMT+7", strtotime($article->created_at)) }}</span>
-                                    <p><a href="{{ route('user.article.detail', ['id' => $article->id, 'slug' => $article->slug]) }}" class="btn btn-primary">Xem thêm</a></p>
+                                    <p><a href="{{ route('user.article.detail', ['id' => $article->id, 'slug' => $article->slug]) }}" class="btn btn-primary">More</a></p>
                                 </div>
                             </div>
                             @endforeach

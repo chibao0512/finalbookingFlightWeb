@@ -1,5 +1,5 @@
 @extends('page.layouts.page')
-@section('title', 'ABAY.VN')
+@section('title', 'B-Air')
 @section('style')
 @stop
 @section('content')

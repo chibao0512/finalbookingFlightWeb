@@ -3,7 +3,7 @@
         <form action="{{ route('user.category.articles') }}" class="search-form">
             <div class="form-group">
                 <span class="icon icon-search"></span>
-                <input type="text" name="keyword" class="form-control" placeholder="Tìm kiếm tin tức">
+                <input type="text" name="keyword" class="form-control" placeholder="Search news">
             </div>
         </form>
     </div>
