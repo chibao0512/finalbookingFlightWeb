@@ -23,7 +23,7 @@
                                             @endif
                                         @endforeach
                                     @endif
-                                    <p><span class="number">{{ $number_flight }}</span> <span>chuyến bay</span></p>
+                                    <p><span class="number">{{ $number_flight }}</span> <span>flights</span></p>
                                 </div>
                             </div>
                             @endforeach
@@ -38,8 +38,8 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section text-center ftco-animate">
-                    <span class="subheading">ƯU ĐÃI</span>
-                    <h2>KHUYẾN MẠI</h2>
+                    <span class="subheading">ENDOW</span>
+                    <h2>PROMOTION</h2>
                 </div>
             </div>
             <div class="row d-flex">
@@ -70,8 +70,8 @@
         <div class="container">
             <div class="row justify-content-center mb-4">
                 <div class="col-md-7 text-center heading-section ftco-animate">
-                    <span class="subheading">Danh sách</span>
-                    <h2 class="mb-4">Sân Bay</h2>
+                    <span class="subheading">List</span>
+                    <h2 class="mb-4">Airport</h2>
                 </div>
             </div>
             <div class="row ftco-animate">

@@ -1,5 +1,5 @@
 @extends('page.layouts.page')
-@php $title = isset($airline_company) && $airline_company != null ? $airline_company->name : 'ABAY.VN -  Mua Bán Vé Máy Bay Giá Rẻ' @endphp
+@php $title = isset($airline_company) && $airline_company != null ? $airline_company->name : 'B-Air -  Buy and Sell Cheap Airline Tickets' @endphp
 @section('title', $title)
 @section('style')
 @stop
@@ -21,7 +21,7 @@
                                         <div class="job-post-item-header align-items-center">
 
                                             <span class="subadge">
-                                                Mã chuyến bay : {{ $flight->code_no }}
+                                               Flight code : {{ $flight->code_no }}
                                                 <span style="font-size: 11px;  color: black">
                                                     ({{ isset($flight->plane) ? $flight->plane->name : ''  }})
                                                 </span>

@@ -12,8 +12,8 @@
                         <div class="clip"><div class="shadow"><span class="digit firstDigit"></span></div></div>
                         <div class="msg">OH!<span class="triangle"></span></div>
                     </div>
-                    <h2 class="h1">Sorry! Bạn không có quyền truy cập chức năng này.</h2>
-                    <button type="button" class="btn btn-info btn-flat margin btn-lg" onclick="window.history.back()"><i class="fa fa-hand-o-left" aria-hidden="true"></i>  Quay trở lại</button>
+                    <h2 class="h1">Sorry! You do not have permission to access this function.</h2>
+                    <button type="button" class="btn btn-info btn-flat margin btn-lg" onclick="window.history.back()"><i class="fa fa-hand-o-left" aria-hidden="true"></i>  Back</button>
                 </div>
             </div>
         </div>

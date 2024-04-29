@@ -3,8 +3,8 @@
         <div class="row mb-5">
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">ABAY</h2>
-                    <p>Công ty TNHH vé máy bay trực tuyến ABAY</p>
+                    <h2 class="ftco-heading-2">B-Air</h2>
+                    <p>B-Air Online Air Ticket Company</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
                         <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                         <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -14,14 +14,14 @@
             </div>
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Bạn còn thắc mắc</h2>
+                    <h2 class="ftco-heading-2">Do you have questions</h2>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="pb-1 d-block">Liên hệ</a></li>
-                        <li><a href="#" class="pb-1 d-block">Hướng dẫn thanh toán</a></li>
-                        <li><a href="#" class="pb-1 d-block">Thông tin chuyển khoản</a></li>
-                        <li><a href="#" class="pb-1 d-block">Hướng dẫn đặt vé</a></li>
-                        <li><a href="#" class="pb-1 d-block">Câu hỏi thường gặp</a></li>
-                        <li><a href="#" class="pb-1 d-block">Chăm sóc khách hàng</a></li>
+                        <li><a href="#" class="pb-1 d-block">Contact</a></li>
+                        <li><a href="#" class="pb-1 d-block">Payment Guide</a></li>
+                        <li><a href="#" class="pb-1 d-block">Transfer information</a></li>
+                        <li><a href="#" class="pb-1 d-block">Instructions for booking tickets</a></li>
+                        <li><a href="#" class="pb-1 d-block">Frequently asked questions</a></li>
+                        <li><a href="#" class="pb-1 d-block">Customer care</a></li>
                     </ul>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                 <div class="ftco-footer-widget mb-4 ml-md-4">
                     <h2 class="ftco-heading-2">Danh mục</h2>
                     <ul class="list-unstyled">
-                        <li><a href="{{ route('user.home.index') }}" class="nav-link">Trang chủ</a></li>
+                        <li><a href="{{ route('user.home.index') }}" class="nav-link">Dashboad</a></li>
                         @foreach($categories as $category)
                             <li><a href="{{ route('user.category.index', ['slug' => $category->slug, 'id' => $category->id]) }}" class="nav-link">{{ $category->name }}</a></li>
                         @endforeach
@@ -38,7 +38,7 @@
             </div>
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4 ml-md-4">
-                    <h2 class="ftco-heading-2">Tài khoản</h2>
+                    <h2 class="ftco-heading-2">Account</h2>
                     <ul class="list-unstyled">
                         @if (Auth::guard('user')->check())
                             @php
@@ -46,23 +46,23 @@
                             @endphp
                             <li>
                                 <a href="{{ route('info.account') }}">
-                                    Xin chào : {{ $user->name }}
+                                    Hello : {{ $user->name }}
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ route('user.page.logout') }}" class="nav-link">
-                                    Đăng Xuất
+                                    Sign out
                                 </a>
                             </li>
                         @else
                             <li>
                                 <a href="{{ route('user.page.login') }}" class="nav-link">
-                                    Đăng nhập
+                                    Sign in
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ route('user.page.register') }}" class="nav-link">
-                                    Đăng ký
+                                    Sign up
                                 </a>
                             </li>
                         @endif
@@ -86,7 +86,7 @@
             <div class="col-md-12 text-center">
 
                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> The website is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">B-Air</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
             </div>
         </div>

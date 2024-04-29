@@ -6,9 +6,9 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-left">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"> <i class="nav-icon fas fa fa-home"></i> Trang chủ</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('location.index') }}">Địa điểm</a></li>
-                        <li class="breadcrumb-item active">Tạo mới</li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"> <i class="nav-icon fas fa fa-home"></i>Dashboad</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('location.index') }}">Location</a></li>
+                        <li class="breadcrumb-item active">Create new</li>
                     </ol>
                 </div>
             </div>

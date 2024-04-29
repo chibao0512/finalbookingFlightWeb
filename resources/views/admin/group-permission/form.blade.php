@@ -7,14 +7,14 @@
                     <!-- form start -->
                     <div class="card-body">
                         <div class="form-group {{ $errors->first('name') ? 'has-error' : '' }} ">
-                            <label for="inputEmail3" class="control-label default">Tên nhóm quyền <sup class="text-danger">(*)</sup></label>
+                            <label for="inputEmail3" class="control-label default">Permission group name <sup class="text-danger">(*)</sup></label>
                             <div>
                                 <input type="text" maxlength="100" class="form-control"  placeholder="Tên nhóm quyền" name="name" value="{{ old('name',isset($permissionGroup) ? $permissionGroup->name : '') }}">
                                 <span class="text-danger "><p class="mg-t-5">{{ $errors->first('name') }}</p></span>
                             </div>
                         </div>
                         <div class="form-group {{ $errors->first('description') ? 'has-error' : '' }}">
-                            <label for="inputEmail3" class="control-label default">Mô tả chi tiết</label>
+                            <label for="inputEmail3" class="control-label default">Description</label>
                             <div>
                                 <textarea name="description" style="resize:vertical" class="form-control" placeholder="Mô tả sơ qua về nhóm quyền ...">{{ old('description',isset($permissionGroup) ? $permissionGroup->description : '') }}</textarea>
                                 <span class="text-danger"><p class="mg-t-5">{{ $errors->first('description') }}</p></span>
@@ -27,14 +27,14 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title"> Xuất bản</h3>
+                        <h3 class="card-title"> Status</h3>
                     </div>
                     <div class="card-body">
                         <div class="btn-set">
                             <button type="submit" name="submit" class="btn btn-info">
-                                <i class="fa fa-save"></i> Lưu dữ liệu
+                                <i class="fa fa-save"></i> Save Data
                             </button>
-                            <a href="{{ route('group.permission.index') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Quay lại</a>
+                            <a href="{{ route('group.permission.index') }}" class="btn btn-danger"><i class="fa fa-undo"></i>Back</a>
                         </div>
                     </div>
                     <!-- /.card-body -->

@@ -6,9 +6,9 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-left">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"> <i class="nav-icon fas fa fa-home"></i> Trang chủ</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('role.index') }}">Vai trò</a></li>
-                        <li class="breadcrumb-item active">Danh sách</li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"> <i class="nav-icon fas fa fa-home"></i> Dashboad</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('role.index') }}">Role</a></li>
+                        <li class="breadcrumb-item active">List</li>
                     </ol>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                         <div class="card-header">
                             <div class="card-tools">
                                 <div class="btn-group">
-                                    <a href="{{ route('role.create') }}"><button type="button" class="btn btn-block btn-info"><i class="fa fa-plus"></i> Tạo mới</button></a>
+                                    <a href="{{ route('role.create') }}"><button type="button" class="btn btn-block btn-info"><i class="fa fa-plus"></i> Create new</button></a>
                                 </div>
                             </div>
                         </div>
@@ -33,11 +33,11 @@
                             <table class="table table-hover table-bordered">
                                 <thead>
                                     <tr>
-                                        <th width="4%" class=" text-center">STT</th>
-                                        <th>Tên vai trò</th>
-                                        <th>Danh sách quyền</th>
-                                        <th>Mô tả</th>
-                                        <th class="text-center">Hành động</th>
+                                        <th width="4%" class=" text-center">No.</th>
+                                        <th>Role name</th>
+                                        <th>List of permissions</th>
+                                        <th>Description</th>
+                                        <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>

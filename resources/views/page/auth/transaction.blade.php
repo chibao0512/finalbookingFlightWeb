@@ -10,13 +10,13 @@
             <div class="row bg-white">
                 @include('page.common.sidebar_user')
                 <div class="col-sm-12 col-lg-10 pr-lg-4">
-                    <h3 class="heading-3">Danh sách chuyến bay đã đặt</h3>
+                    <h3 class="heading-3">List of booked flights</h3>
                     <div class="row">
                         <div class="row d-flex justify-content-center mt-4 mb-4">
                             <div class="col-md-12">
                                 <form action="" style="margin-left: 15px;">
                                     <div class="form-group d-flex">
-                                        <input type="text" class="form-control" placeholder="Mã giao dịch" name="code_no">
+                                        <input type="text" class="form-control" placeholder="Transaction code" name="code_no">
                                         <input type="submit" value="Tìm kiếm" class="submit btn-primary">
                                     </div>
                                 </form>
@@ -26,11 +26,11 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th scope="col">STT</th>
-                                        <th scope="col">Mã giao dịch</th>
-                                        <th scope="col">Chuyến bay</th>
-                                        <th scope="col">Khách hàng</th>
-                                        {{--<th scope="col">Hành động</th>--}}
+                                        <th scope="col">No.</th>
+                                        <th scope="col">Transaction code</th>
+                                        <th scope="col">Flight </th>
+                                        <th scope="col">Customer</th>
+                                        {{--<th scope="col">Action</th>--}}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -40,17 +40,17 @@
                                             <th style="vertical-align: middle">{{ $i }}</th>
                                             <th style="vertical-align: middle"><a href="{{ route('show.tickets', $transaction->id) }}" class="show-ticket">{{ $transaction->code_no }}</a></th>
                                             <td style="vertical-align: middle">
-                                                <p style="margin-bottom: 0px;">Máy bay : {{ $transaction->flight->plane->name }} ({{ $transaction->flight->plane->code_no }})</p>
+                                                <p style="margin-bottom: 0px;">Plane : {{ $transaction->flight->plane->name }} ({{ $transaction->flight->plane->code_no }})</p>
                                                 <p style="margin-bottom: 0px;">
                                                     <span>{{ isset($transaction->flight->start_location) ? $transaction->flight->start_location->name : '' }}</span>
                                                     <span><img src="{{ asset('page/images/icon/arrow-right.svg') }}" alt="" style="margin-left: 10px; margin-right: 10px"></span>
                                                     <span>{{ isset($transaction->flight->end_location) ? $transaction->flight->end_location->name : '' }}</span>
                                                 </p>
-                                                <p style="margin-bottom: 0px;">Thời gian : {{ getDateTime($language = "vn", $getDay = 1, $getDate = 1, $getTime = 0, $timeZone = "GMT+7", strtotime($transaction->start_day))}}</p>
+                                                <p style="margin-bottom: 0px;">Time : {{ getDateTime($language = "vn", $getDay = 1, $getDate = 1, $getTime = 0, $timeZone = "GMT+7", strtotime($transaction->start_day))}}</p>
                                                 <p style="margin-bottom: 0px;">{{ date('H:i', strtotime($transaction->start_day)) }} - {{ date('H:i', strtotime($transaction->end_day)) }}</p>
-                                                <p style="margin-bottom: 0px;">Loại vé : {{ $types[$transaction->type] ?? '' }}</p>
-                                                <p style="margin-bottom: 0px;">Hạng vé : {{ $ticket_class[$transaction->type] ?? '' }}</p>
-                                                <p style="margin-bottom: 0px;">Giá tiền : <b>{{ number_format($transaction->total_money,0,',','.') }} vnđ</b></p>
+                                                <p style="margin-bottom: 0px;">Ticket type : {{ $types[$transaction->type] ?? '' }}</p>
+                                                <p style="margin-bottom: 0px;">Ticket class : {{ $ticket_class[$transaction->type] ?? '' }}</p>
+                                                <p style="margin-bottom: 0px;">Price : <b>{{ number_format($transaction->total_money,0,',','.') }} vnđ</b></p>
                                             </td>
                                             <td style="vertical-align: middle">
                                                 <p style="margin-bottom: 0px;">{{ $transaction->name }}</p>
@@ -67,8 +67,8 @@
                                                 @if ($transaction->baby)
                                                     <p style="margin-bottom: 0px;">Em bé : {{ $transaction->baby }}</p>
                                                 @endif
-                                                <p style="margin-bottom: 0px;">Phương thức TT : {{ $transaction->payment_method == 'payment' ? 'Chuyển khoản' : 'Thanh toán online' }}</p>
-                                                <p style="margin-bottom: 0px;">Trạng thái : {{ isset($status[$transaction->status]) ? $status[$transaction->status] : '' }}</p>
+                                                <p style="margin-bottom: 0px;">Payment type : {{ $transaction->payment_method == 'payment' ? 'Transfer' : 'Payment online' }}</p>
+                                                <p style="margin-bottom: 0px;">Status : {{ isset($status[$transaction->status]) ? $status[$transaction->status] : '' }}</p>
                                             </td>
                                             {{--<td style="vertical-align: middle">@mdo</td>--}}
                                         </tr>
@@ -96,7 +96,7 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Chi tiết danh sách vé</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Detailed ticket list</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -105,13 +105,13 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">STT</th>
-                                    <th scope="col">Mã vé</th>
-                                    <th scope="col">Họ tên</th>
-                                    <th scope="col">Ghế</th>
-                                    <th scope="col">Ngày sinh</th>
+                                    <th scope="col">No.</th>
+                                    <th scope="col">Ticlet code</th>
+                                    <th scope="col">Full name</th>
+                                    <th scope="col">Seat</th>
+                                    <th scope="col">Data of birth</th>
                                     <th scope="col">CCCD</th>
-                                    <th scope="col">Mua thêm</th>
+                                    <th scope="col">Booking more</th>
                                 </tr>
                             </thead>
                             <tbody id="model-ticket-content">

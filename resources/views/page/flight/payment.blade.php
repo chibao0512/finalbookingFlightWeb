@@ -1,5 +1,5 @@
 @extends('page.layouts.page')
-@php $title =  'ABAY.VN -  Mua Bán Vé Máy Bay Giá Rẻ' @endphp
+@php $title =  'B-Air -  Buy and Sell Cheap Airline Tickets' @endphp
 @section('title', $title)
 @section('style')
 @stop
@@ -12,8 +12,8 @@
                     <div class="col-lg-8 pr-lg-4">
                         <div class="row">
                             <div class="col-md-12">
-                                <h2 class="ftco-heading-2" style="text-transform: uppercase">Thông tin chuyến bay</h2>
-                                {{--<h2 class="ftco-heading-2">Đơn hàng : {{ $transaction->code_no }}</h2>--}}
+                                <h2 class="ftco-heading-2" style="text-transform: uppercase">Flight information</h2>
+                                {{--<h2 class="ftco-heading-2">Order : {{ $transaction->code_no }}</h2>--}}
                                 <div class="row">
                                     <div class="col-sm-12 col-lg-6">
                                         <div style="margin-top:15px ">
@@ -26,14 +26,14 @@
                                             <span style="margin-top: 20px;">{{ $transaction->flight->plane->airline_company->name }}</span>
                                         </div>
                                         <div class="d-flex" style="float: left;">
-                                            <p>Máy bay : {{ $transaction->flight->plane->name }} ({{ $transaction->flight->code_no }})</p>
+                                            <p>Plane: {{ $transaction->flight->plane->name }} ({{ $transaction->flight->code_no }})</p>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-lg-6 ">
                                         <div style="margin-top:15px ">
                                             <p>{{ getDateTime($language = "vn", $getDay = 1, $getDate = 1, $getTime = 0, $timeZone = "GMT+7", strtotime($transaction->flight->start_day))}}</p>
                                             <p>{{ date('H:i', strtotime($transaction->flight->start_day)) }} - {{ date('H:i', strtotime($transaction->flight->end_day)) }}</p>
-                                            <p>Tình trạng : Đợi thanh toán</p>
+                                            <p>Status : Wait for payment</p>
                                         </div>
                                     </div>
                                 </div>
@@ -41,30 +41,30 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <h2 class="ftco-heading-2" style="text-transform: uppercase; margin-top: 15px">Thông tin khách hàng</h2>
+                                <h2 class="ftco-heading-2" style="text-transform: uppercase; margin-top: 15px">Customer information</h2>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <span class="position">Người đặt </span>
+                                        <span class="position">Customer </span>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>Khách hàng : {{ $transaction->name }}</p>
+                                        <p>Customer : {{ $transaction->name }}</p>
                                         <p>Email : {{ $transaction->email }} </p>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>Số điện thoại : {{ $transaction->phone }}</p>
+                                        <p>Phone number : {{ $transaction->phone }}</p>
                                     </div>
                                     <div class="col-md-12">
-                                        <span class="position">Thành viên </span>
+                                        <span class="position">Member </span>
                                         @foreach($transaction->tickets as $ticket)
                                         <div class="row">
                                             <div class="col-4">
-                                                Họ tên : {{ $ticket->name}}
+                                                Fullname : {{ $ticket->name}}
                                             </div>
                                             <div class="col-4">
                                                 CCCD : {{ $ticket->card}}
                                             </div>
                                             <div class="col-4">
-                                                Ngày sinh : {{ $ticket->birthday}}
+                                                Data of birth : {{ $ticket->birthday}}
                                             </div>
                                             @if ($ticket->transport)
                                             <div class="col-12">
@@ -85,11 +85,11 @@
                                     <div class="col-md-12">
                                         <label for="option-payment-1"><input type="radio" id="option-payment-1" name="payment_method" value="payment" {{ old('payment_method') == null ? 'checked' : '' }} {{ old('payment_method') == 'payment' ? 'checked' : '' }}> Chuyển khoản (vui lòng chuyển khoản theo thông tin và chờ xác nhận)</label>
                                         <div>
-                                            <p>Tên chuyển khoản : CT TNNH vé máy bay trực tuyến Abay</p>
-                                            <p>Số tiền : <b>{{ number_format($transaction->total_money,0,',','.') }} vnđ</b></p>
-                                            <p>Nội dung : {{ $transaction->code_no }}</p>
-                                            <p>Ngân hàng : ACB</p>
-                                            <p>Số tài khoản : 227764088</p>
+                                            <p>Transfer name: B-Air online airline ticket </p>
+                                            <p>Price : <b>{{ number_format($transaction->total_money,0,',','.') }} vnđ</b></p>
+                                            <p>Content : {{ $transaction->code_no }}</p>
+                                            <p>Bank : Agribank</p>
+                                            <p>Account number : 1111111111</p>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
@@ -98,7 +98,7 @@
                                     </div>
                                     <div style="width: 100%">
                                         <div class="col-sm-12 col-md-4 col-lg-4" style="float: right; margin-bottom: 15px">
-                                            <button type="submit" class="form-control btn btn-primary">Xác nhận thanh toán</button>
+                                            <button type="submit" class="form-control btn btn-primary">Payment confirmation</button>
                                         </div>
                                     </div>
                                 </div>

@@ -1,6 +1,6 @@
 <table style="width: 100%">
     <tr>
-        <td>Vé người lớn : </td>
+        <td>Adult ticket : </td>
         <td style="width: 20%; text-align: center">x {{ isset($dataSearch['adult']) ? $dataSearch['adult'] : 1 }}</td>
         <td style="text-align: right">
             @php
@@ -13,7 +13,7 @@
     </tr>
 
     <tr>
-        <td>Vé trẻ em : </td>
+        <td>Child tickets: </td>
         <td style="width: 20%; text-align: center">x {{ isset($dataSearch['children']) ? $dataSearch['children'] : 0 }}</td>
         <td style="text-align: right">
             @php $children = $dataSearch['children'] ?? 0  @endphp
@@ -23,7 +23,7 @@
     </tr>
 
     <tr>
-        <td>Vé em bé : </td>
+        <td>Baby ticket : </td>
         <td style="width: 20%; text-align: center">x {{ isset($dataSearch['baby']) ? $dataSearch['baby'] : 0 }}</td>
         @php $baby = $dataSearch['baby'] ?? 0 @endphp
         @php $baby_money = $baby * $flight->baby_ticket @endphp
@@ -31,7 +31,7 @@
         <td style="text-align: right">{{ isset($dataSearch) ? number_format($baby_money,0,',','.') : 0 }} vnđ</td>
     </tr>
     <tr>
-        <td>Hành lý : </td>
+        <td>Luggage : </td>
         <td style="width: 20%; text-align: center"></td>
         <td style="text-align: right">
             @php $transport_total = 0; @endphp
@@ -44,14 +44,14 @@
         </td>
     </tr>
     <tr>
-        <td>Phụ phí : </td>
+        <td>Surcharge : </td>
         <td style="width: 20%; text-align: center"></td>
         <td style="text-align: right">
             <b>{{ number_format($flight->expense,0,',','.') }} vnđ</b>
         </td>
     </tr>
     <tr>
-        <td>Thuế + phụ phí : </td>
+        <td>Tax + surcharge : </td>
         <td style="width: 20%; text-align: center"></td>
         <td style="text-align: right">
             @php
@@ -62,7 +62,7 @@
         </td>
     </tr>
     <tr>
-        <td>Tổng giá vé : </td>
+        <td>Total ticket price : </td>
         <td style="width: 20%; text-align: center"></td>
         <td style="text-align: right">
             <b>{{ number_format($total + $total_percentage + $transport_total,0,',','.') }} vnđ</b>

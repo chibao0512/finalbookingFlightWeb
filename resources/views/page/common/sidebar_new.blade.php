@@ -9,7 +9,7 @@
     </div>
     <div class="sidebar-box ftco-animate fadeInUp ftco-animated">
         <div class="categories">
-            <h3 class="heading-3">Danh mục</h3>
+            <h3 class="heading-3">Category</h3>
             @foreach($categories as $category)
             <li><a href="{{ route('user.category.index', ['slug' => $category->slug, 'id' => $category->id]) }}">{{ $category->name }} <span>({{ $category->news->count() }})</span></a></li>
             @endforeach

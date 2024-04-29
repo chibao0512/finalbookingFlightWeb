@@ -16,7 +16,7 @@
     </div>
     <div class="col-sm-12 col-md-4">
         <div class=" form-group">
-            <input type="text" name="baby_names[]" class="form-control" placeholder="Họ và tên" required>
+            <input type="text" name="baby_names[]" class="form-control" placeholder="Full name" required>
         </div>
     </div>
     <div class="col-sm-12 col-md-4">

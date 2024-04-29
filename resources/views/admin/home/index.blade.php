@@ -8,12 +8,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Quản lý bán hàng</h1>
+                    <h1>Revenue management</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Trang chủ</a></li>
-                        <li class="breadcrumb-item"><a href="#">Quản lý bán hàng</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Dashboad</a></li>
+                        <li class="breadcrumb-item"><a href="#">Revenue management</a></li>
                     </ol>
                 </div>
             </div>
@@ -25,7 +25,7 @@
         <div class="container-fluid">
             <div class="card card-default">
                 <div class="card-header">
-                    <h3 class="card-title">Dữ liệu website</h3>
+                    <h3 class="card-title">Data website</h3>
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                     </div>
@@ -37,9 +37,9 @@
                             <div class="info-box">
                                 <span class="info-box-icon bg-info"><i class="ion ion-ios-cart-outline"></i></span>
                                 <div class="info-box-content">
-                                    <span class="info-box-text">Số giao dịch hôm nay</span>
+                                    <span class="info-box-text">Today's transaction number</span>
                                     @php $time_day = \Carbon\Carbon::now()->format('Y-m-d') @endphp
-                                    <span class="info-box-number">{{ $transaction_day }}<small><a href="{{  route('transaction.index', ['start_day' => $time_day, 'end_day' => $time_day]) }}">(Chi tiết)</a></small></span>
+                                    <span class="info-box-number">{{ $transaction_day }}<small><a href="{{  route('transaction.index', ['start_day' => $time_day, 'end_day' => $time_day]) }}">(Detail)</a></small></span>
                                 </div>
                                 <!-- /.info-box-content -->
                             </div>
@@ -50,8 +50,8 @@
                             <div class="info-box">
                                 <span class="info-box-icon bg-green"><i class="ion ion-ios-gear-outline"></i></span>
                                 <div class="info-box-content">
-                                    <span class="info-box-text">Số chuyến bay hôm nay</span>
-                                    <span class="info-box-number">{{ $flight_day }}<small><a href="{{ route('flight.index', ['start_day' => $time_day, 'end_day' => $time_day]) }}">(Chi tiết)</a></small></span>
+                                    <span class="info-box-text">Today's flight number</span>
+                                    <span class="info-box-number">{{ $flight_day }}<small><a href="{{ route('flight.index', ['start_day' => $time_day, 'end_day' => $time_day]) }}">(Detail)</a></small></span>
                                 </div>
                                 <!-- /.info-box-content -->
                             </div>
@@ -62,8 +62,8 @@
                             <div class="info-box">
                                 <span class="info-box-icon bg-red"><i class="ion ion-ios-people-outline"></i></span>
                                 <div class="info-box-content">
-                                    <span class="info-box-text">Thành viên</span>
-                                    <span class="info-box-number">{{ $number_user }} <small><a href="{{ route('user.index') }}">(Chi tiết)</a></small></span>
+                                    <span class="info-box-text">Member</span>
+                                    <span class="info-box-number">{{ $number_user }} <small><a href="{{ route('user.index') }}">(Detail)</a></small></span>
                                 </div>
                                 <!-- /.info-box-content -->
                             </div>
@@ -74,8 +74,8 @@
                             <div class="info-box">
                                 <span class="info-box-icon bg-info color-palette"><i class="fas fa-file-word"></i></span>
                                 <div class="info-box-content">
-                                    <span class="info-box-text">Số lượng bài viết</span>
-                                    <span class="info-box-number">{{ $number_article }} <small><a href="{{ route('article.index') }}">(Chi tiết)</a></small></span>
+                                    <span class="info-box-text">Number of articles</span>
+                                    <span class="info-box-number">{{ $number_article }} <small><a href="{{ route('article.index') }}">(Detail)</a></small></span>
                                 </div>
                                 <!-- /.info-box-content -->
                             </div>
@@ -89,7 +89,7 @@
                             <div class="info-box">
                                 <span class="info-box-icon bg-info"><i class="fas fa-dollar-sign"></i></span>
                                 <div class="info-box-content">
-                                    <span class="info-box-text">Doanh thu ngày</span>
+                                    <span class="info-box-text">Daily revenue</span>
                                     <span class="info-box-number">{{ number_format($totalMoneyDay,0,',','.') }} <small></small></span>
                                 </div>
                                 <!-- /.info-box-content -->
@@ -101,7 +101,7 @@
                             <div class="info-box">
                                 <span class="info-box-icon bg-green"><i class="fas fa-dollar-sign"></i></span>
                                 <div class="info-box-content">
-                                    <span class="info-box-text">Doanh thu tuần</span>
+                                    <span class="info-box-text">Weekly revenue</span>
                                     <span class="info-box-number">{{ number_format($totalMoneyWeed,0,',','.') }}<small></small></span>
                                 </div>
                                 <!-- /.info-box-content -->
@@ -113,7 +113,7 @@
                             <div class="info-box">
                                 <span class="info-box-icon bg-red"><i class="fas fa-dollar-sign"></i></span>
                                 <div class="info-box-content">
-                                    <span class="info-box-text">Doanh thu tháng</span>
+                                    <span class="info-box-text">Months revenue</span>
                                     <span class="info-box-number">{{number_format($totalMoneyMonth,0,',','.')  }} <small></small></span>
                                 </div>
                                 <!-- /.info-box-content -->
@@ -127,7 +127,7 @@
                             <div class="info-box">
                                 <span class="info-box-icon bg-info"><i class="fas fa-dollar-sign"></i></span>
                                 <div class="info-box-content">
-                                    <span class="info-box-text">Doanh thu năm</span>
+                                    <span class="info-box-text">Years revenue</span>
                                     <span class="info-box-number">{{ number_format($totalMoneyYear ,0,',','.') }} <small></small></span>
                                 </div>
                                 <!-- /.info-box-content -->
@@ -147,7 +147,7 @@
         <div class="container-fluid">
             <div class="card card-default">
                 <div class="card-header">
-                    <h3 class="card-title">Danh sách đơn hàng mới</h3>
+                    <h3 class="card-title">New order list</h3>
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                     </div>
@@ -159,12 +159,12 @@
                             <table class="table table-hover text-nowrap table-bordered">
                                 <thead>
                                 <tr>
-                                    <th scope="col">STT</th>
-                                    <th scope="col">Mã giao dịch</th>
-                                    <th scope="col">Chuyến bay</th>
-                                    <th scope="col">Khách hàng</th>
-                                    <th scope="col">Thanh toán</th>
-                                    <th scope="col">Trạng thái</th>
+                                    <th scope="col">No.</th>
+                                    <th scope="col">Transaction code</th>
+                                    <th scope="col">Flight</th>
+                                    <th scope="col">Customer</th>
+                                    <th scope="col">Payment</th>
+                                    <th scope="col">Status</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -173,17 +173,17 @@
                                         <th style="vertical-align: middle">{{ $key + 1 }}</th>
                                         <th style="vertical-align: middle"><a href="{{ route('transaction.show.tickets', $transaction->id) }}" class="show-ticket">{{ $transaction->code_no }}</a></th>
                                         <td style="vertical-align: middle">
-                                            <p style="margin-bottom: 0px;">Máy bay : {{ $transaction->flight->plane->name }} ({{ $transaction->flight->plane->code_no }})</p>
+                                            <p style="margin-bottom: 0px;">Flight : {{ $transaction->flight->plane->name }} ({{ $transaction->flight->plane->code_no }})</p>
                                             <p style="margin-bottom: 0px;">
                                                 <span>{{ isset($transaction->flight->start_location) ? $transaction->flight->start_location->name : '' }}</span>
                                                 <span><img src="{{ asset('page/images/icon/arrow-right.svg') }}" alt="" style="margin-left: 10px; margin-right: 10px"></span>
                                                 <span>{{ isset($transaction->flight->end_location) ? $transaction->flight->end_location->name : '' }}</span>
                                             </p>
-                                            <p style="margin-bottom: 0px;">Thời gian : {{ getDateTime($language = "vn", $getDay = 1, $getDate = 1, $getTime = 0, $timeZone = "GMT+7", strtotime($transaction->start_day))}}</p>
+                                            <p style="margin-bottom: 0px;">Time : {{ getDateTime($language = "vn", $getDay = 1, $getDate = 1, $getTime = 0, $timeZone = "GMT+7", strtotime($transaction->start_day))}}</p>
                                             <p style="margin-bottom: 0px;">{{ date('H:i', strtotime($transaction->start_day)) }} - {{ date('H:i', strtotime($transaction->end_day)) }}</p>
-                                            <p style="margin-bottom: 0px;">Loại vé : {{ $types[$transaction->type] ?? '' }}</p>
-                                            <p style="margin-bottom: 0px;">Hạng vé : {{ $ticket_class[$transaction->type] ?? '' }}</p>
-                                            <p style="margin-bottom: 0px;">Giá tiền : <b>{{ number_format($transaction->total_money,0,',','.') }} vnđ</b></p>
+                                            <p style="margin-bottom: 0px;">Ticket type: {{ $types[$transaction->type] ?? '' }}</p>
+                                            <p style="margin-bottom: 0px;">Ticket class : {{ $ticket_class[$transaction->type] ?? '' }}</p>
+                                            <p style="margin-bottom: 0px;">Price : <b>{{ number_format($transaction->total_money,0,',','.') }} vnđ</b></p>
                                         </td>
                                         <td style="vertical-align: middle">
                                             <p style="margin-bottom: 0px;">{{ $transaction->name }}</p>
@@ -200,20 +200,20 @@
                                             @if ($transaction->baby)
                                                 <p style="margin-bottom: 0px;">Em bé : {{ $transaction->baby }}</p>
                                             @endif
-                                            <p>Phương thức TT : {{ $transaction->payment_method == 'payment' ? 'Chuyển khoản' : 'Thanh toán online' }}</p>
+                                            <p>Payment method: {{ $transaction->payment_method == 'payment' ? 'Transfer' : 'Payment online' }}</p>
                                         </td>
                                         <td style="vertical-align: middle">
                                             @if ($transaction->payment)
                                                 <ul>
-                                                    <li>Ngân hàng: {{ $transaction->payment->code_bank }}</li>
-                                                    <li>Mã thanh toán: {{ $transaction->payment->code_vnpay }}</li>
-                                                    <li>Tổng tiền:  {{ number_format($transaction->payment->money,0,',','.') }} VNĐ</li>
-                                                    <li>Nội dung: {{ $transaction->payment->note }}</li>
-                                                    <li>Thời gian: {{ date('Y-m-d H:i', strtotime($transaction->payment->time)) }}</li>
+                                                    <li>Bank: {{ $transaction->payment->code_bank }}</li>
+                                                    <li>Transaction code: {{ $transaction->payment->code_vnpay }}</li>
+                                                    <li>Total price:  {{ number_format($transaction->payment->money,0,',','.') }} VNĐ</li>
+                                                    <li>Content: {{ $transaction->payment->note }}</li>
+                                                    <li>Time: {{ date('Y-m-d H:i', strtotime($transaction->payment->time)) }}</li>
 
                                                 </ul>
                                             @else
-                                                Chuyển khoản
+                                                Payment
                                             @endif
                                         </td>
                                         <td style="vertical-align: middle;">

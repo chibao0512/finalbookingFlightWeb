@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="col-sm-12 col-md-5">
-        <input type="text" name="adult_cards[]" class="form-control adult_card" placeholder="CCCD or Hộ chiếu" required>
+        <input type="text" name="adult_cards[]" class="form-control adult_card" placeholder="CCCD or Passport" required>
     </div>
     <div class="col-sm-12 col-md-5">
         <input type="date" name="adult_birthday[]" class="form-control" required>
@@ -22,7 +22,7 @@
     <div class="col-sm-12 col-md-4">
         <div class=" form-group">
             <select name="adult_transports[]" flight_id="{{ $flight->id }}" class="form-control transports" url="{{ route('flight.transport') }}" transport_key = {{ $i }}>
-                <option value="0">Mua thêm ký gửi</option>
+                <option value="0">Buy more consignments</option>
                 @foreach($transports as $transport)
                     <option value="{{ $transport->id }}" price="{{ $transport->price }}">{{ $transport->title }}</option>
                 @endforeach

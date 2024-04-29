@@ -1,5 +1,5 @@
 @extends('page.layouts.page')
-@php $title =  'ABAY.VN -  Mua Bán Vé Máy Bay Giá Rẻ' @endphp
+@php $title =  'B-Air -  Buy and Sell Cheap Airline Tickets' @endphp
 @section('title', $title)
 @section('style')
 @stop
@@ -46,7 +46,7 @@
                     <form action="{{ route('flight.book.ticket', $flight->id) }}" class="list-user" method="post" style="margin-top: 30px">
                     <div class="row bg-white" >
                         <div class="col-md-12">
-                            <h2>Thông tin người bay (vd: Nguyen Van An - người lớn)</h2>
+                            <h2>Customer information (vd: Nguyen Van An - Aduit)</h2>
 
                                 <div class="list-adult">
                                     @for($i = 1; $i <= $adult ; $i++)
@@ -56,12 +56,12 @@
                                 <div class="row">
                                     <div class="clk-sm-12 col-md-12">
                                         <button type="button" class="btn btn-success btn-plus-customer" style="float: right;"
-                                                url="{{ route('flight.plus.customer') }}" flight_id="{{ $flight->id }}" type_customer="adult"><i class="fa fa-plus"></i> Thêm khách hàng</button>
+                                                url="{{ route('flight.plus.customer') }}" flight_id="{{ $flight->id }}" type_customer="adult"><i class="fa fa-plus"></i> Add new customer</button>
                                     </div>
 
                                 </div>
                                 <hr>
-                                <h2>Thông tin trẻ em </h2>
+                                <h2>Children information</h2>
                                 <div class="list-baby">
                                     @if($children > 0)
                                         @for($j =1; $j <= $children; $j++ )
@@ -79,17 +79,17 @@
                                 <div class="row">
                                     <div class="clk-sm-12 col-md-12">
                                         <button type="button" class="btn btn-success btn-plus-customer" style="float: right;"
-                                                url="{{ route('flight.plus.customer') }}" flight_id="{{ $flight->id }}" type_customer="baby"><i class="fa fa-plus"></i> Thêm trẻ em</button>
+                                                url="{{ route('flight.plus.customer') }}" flight_id="{{ $flight->id }}" type_customer="baby"><i class="fa fa-plus"></i> Add baby</button>
                                     </div>
                                 </div>
                                 <hr>
-                                <h2>Thông tin liên hệ</h2>
+                                <h2>Contact Info</h2>
                                 <div class="info-contact">
                                     <div class="row">
                                         <div class="col-sm-12 col-md-4">
                                             <div class=" form-group">
-                                                <label class="font-weight-bold" for="fullname">Họ và tên <sup class="text-danger">(*)</sup></label>
-                                                <input type="text" name="name_contact" class="form-control" value="{{ old('name_contact', isset($user) ? $user->name : '') }}" placeholder="Họ và tên">
+                                                <label class="font-weight-bold" for="fullname">Full name <sup class="text-danger">(*)</sup></label>
+                                                <input type="text" name="name_contact" class="form-control" value="{{ old('name_contact', isset($user) ? $user->name : '') }}" placeholder="Full name">
                                                 @if ($errors->first('name_contact'))
                                                     <span class="text-danger">{{ $errors->first('name_contact') }}</span>
                                                 @endif
@@ -97,8 +97,8 @@
                                         </div>
                                         <div class="col-sm-12 col-md-4">
                                             <div class=" form-group">
-                                                <label class="font-weight-bold" for="fullname">Điện thoại <sup class="text-danger">(*)</sup></label>
-                                                <input type="text" name="phone_contact" class="form-control" value="{{ old('phone_contact', isset($user) ? $user->phone : '') }}" placeholder="Điện thoại">
+                                                <label class="font-weight-bold" for="fullname">Phone number <sup class="text-danger">(*)</sup></label>
+                                                <input type="text" name="phone_contact" class="form-control" value="{{ old('phone_contact', isset($user) ? $user->phone : '') }}" placeholder="Phone number">
                                                 @if ($errors->first('phone_contact'))
                                                     <span class="text-danger">{{ $errors->first('phone_contact') }}</span>
                                                 @endif
@@ -131,12 +131,12 @@
                             </p>
                         </div>
                         <div class="col-sm-12 col-lg-4" style="margin-bottom: 15px">
-                            <a href="{{ route('user.airline.company') }}"><button type="button" class="form-control btn btn-warning">Chọn lại chuyến bay</button></a>
+                            <a href="{{ route('user.airline.company') }}"><button type="button" class="form-control btn btn-warning">Select your flight again</button></a>
                         </div>
                         <div class="col-sm-12 col-lg-4">
                         </div>
                         <div class="col-sm-12 col-lg-4" style="float: right; margin-bottom: 15px">
-                            <button type="submit" class="form-control btn btn-primary">Đặt vé</button>
+                            <button type="submit" class="form-control btn btn-primary">Booking</button>
                         </div>
                         @csrf
                     </div>

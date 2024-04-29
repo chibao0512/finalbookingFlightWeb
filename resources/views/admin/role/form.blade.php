@@ -7,21 +7,21 @@
                     <!-- form start -->
                     <div class="card-body">
                         <div class="form-group {{ $errors->first('name') ? 'has-error' : '' }} ">
-                            <label for="inputEmail3" class="control-label default">Tên vai trò <sup class="text-danger">(*)</sup></label>
+                            <label for="inputEmail3" class="control-label default">Role name <sup class="text-danger">(*)</sup></label>
                             <div>
-                                <input type="text" maxlength="100" class="form-control"  placeholder="Tên vai trò" name="name" value="{{ old('name',isset($role) ? $role->display_name : '') }}">
+                                <input type="text" maxlength="100" class="form-control"  placeholder="Role name" name="name" value="{{ old('name',isset($role) ? $role->display_name : '') }}">
                                 <span class="text-danger "><p class="mg-t-5">{{ $errors->first('name') }}</p></span>
                             </div>
                         </div>
                         <div class="form-group {{ $errors->first('description') ? 'has-error' : '' }}">
-                            <label for="inputEmail3" class="control-label default">Mô tả chi tiết</label>
+                            <label for="inputEmail3" class="control-label default">Description</label>
                             <div>
-                                <textarea name="description" style="resize:vertical" class="form-control" placeholder="Mô tả ...">{{ old('description',isset($role) ? $role->description : '') }}</textarea>
+                                <textarea name="description" style="resize:vertical" class="form-control" placeholder="Description ...">{{ old('description',isset($role) ? $role->description : '') }}</textarea>
                                 <span class="text-danger"><p class="mg-t-5">{{ $errors->first('description') }}</p></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Phân quyền</label>
+                            <label for="exampleInputEmail1">Decentralization</label>
                             <div class="col-md-12 permission_role" style="padding: 0px;">
                                 @if($permissionGroups)
                                     @foreach($permissionGroups as $permissionGroup)
@@ -44,12 +44,12 @@
                                             <div class="row btn-check-role">
                                                 <div class="col-md-2">
                                                     <a class="btn btn-block btn-success checkAll" href="#" type="checkbox"  title="Chọn tất cả" onclick="$('.{{safeTitle($permissionGroup->name)}}').prop('checked', true);return false;">
-                                                        <i class="fa fa-check-square-o" aria-hidden="true"></i> Chọn tất cả
+                                                        <i class="fa fa-check-square-o" aria-hidden="true"></i> Select all
                                                     </a>
                                                 </div>
                                                 <div class="col-md-2" style="margin-left: 20px;">
                                                     <a class="btn btn-block btn-primary canceAll" href="#" type="checkbox"  title="Hủy tất cả" onclick="$('.{{safeTitle($permissionGroup->name)}}').prop('checked', false);return false;">
-                                                        <i class="fa fa-times" aria-hidden="true"></i> Hủy tất cả
+                                                        <i class="fa fa-times" aria-hidden="true"></i> Cancel all
                                                     </a>
                                                 </div>
                                             </div>
@@ -65,14 +65,14 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title"> Xuất bản</h3>
+                        <h3 class="card-title"> Action</h3>
                     </div>
                     <div class="card-body">
                         <div class="btn-set">
                             <button type="submit" name="submit" class="btn btn-info">
-                                <i class="fa fa-save"></i> Lưu dữ liệu
+                                <i class="fa fa-save"></i> Save data
                             </button>
-                            <a href="{{ route('role.index') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Quay lại</a>
+                            <a href="{{ route('role.index') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Back</a>
                         </div>
                     </div>
                     <!-- /.card-body -->

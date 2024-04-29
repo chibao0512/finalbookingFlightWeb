@@ -35,10 +35,10 @@
 
                                 <div class="form-group">
                                     <select class="form-control" name="gender">
-                                        <option value="">Giới tính</option>
-                                        <option value="1" {{ old('gender', isset($user) ? $user->gender : '') == 1 ? 'selected' : '' }}>Nam</option>
-                                        <option value="2" {{ old('gender', isset($user) ? $user->gender : '') == 2 ? 'selected' : '' }}>Nữ</option>
-                                        <option value="3" {{ old('gender', isset($user) ? $user->gender : '') == 3 ? 'selected' : '' }}>Không xác đinh</option>
+                                        <option value="">Gender</option>
+                                        <option value="1" {{ old('gender', isset($user) ? $user->gender : '') == 1 ? 'selected' : '' }}>Male</option>
+                                        <option value="2" {{ old('gender', isset($user) ? $user->gender : '') == 2 ? 'selected' : '' }}>Female</option>
+                                        <option value="3" {{ old('gender', isset($user) ? $user->gender : '') == 3 ? 'selected' : '' }}>etc</option>
                                     </select>
                                     <div class="dropDownSelect2"></div>
                                 </div>
@@ -62,7 +62,7 @@
                                 @csrf
                                 <div style="width: 100%">
                                     <div class="col-sm-12 col-md-4 col-lg-4" style="margin: auto">
-                                        <button type="submit" class="form-control btn btn-primary">Cập nhật</button>
+                                        <button type="submit" class="form-control btn btn-primary">Update</button>
                                     </div>
                                 </div>
                             </form>

@@ -6,9 +6,9 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-left">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"> <i class="nav-icon fas fa fa-home"></i> Trang chủ</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('flight.index') }}">Chuyến bay</a></li>
-                        <li class="breadcrumb-item active">Danh sách</li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"> <i class="nav-icon fas fa fa-home"></i> Dashboad</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('flight.index') }}">Flight</a></li>
+                        <li class="breadcrumb-item active">List</li>
                     </ol>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                 <div class="container-fluid">
                     <div class="card card-default">
                         <div class="card-header card-header-border-bottom">
-                            <h3 class="card-title">Form tìm kiếm</h3>
+                            <h3 class="card-title">Form Search</h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                             </div>
@@ -32,13 +32,13 @@
                                 <div class="row">
                                     <div class="col-sm-12 col-md-3">
                                         <div class="form-group">
-                                            <input type="text" name="code_no" class="form-control mg-r-15" placeholder="Mã chuyến bay">
+                                            <input type="text" name="code_no" class="form-control mg-r-15" placeholder="Flight code">
                                         </div>
                                     </div>
                                    
                                     <div class="col-sm-12 col-md-3">
                                         <div class="input-group-append">
-                                            <button type="submit" class="btn btn-success " style="margin-right: 10px"><i class="fas fa-search"></i> Tìm kiếm </button>
+                                            <button type="submit" class="btn btn-success " style="margin-right: 10px"><i class="fas fa-search"></i> Search </button>
                                             <a href="{{ route('flight.index') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Reload</a>
                                         </div>
                                     </div>
@@ -55,7 +55,7 @@
                         <div class="card-header">
                             <div class="card-tools">
                                 <div class="btn-group">
-                                    <a href="{{ route('flight.create') }}"><button type="button" class="btn btn-block btn-info"><i class="fa fa-plus"></i> Tạo mới</button></a>
+                                    <a href="{{ route('flight.create') }}"><button type="button" class="btn btn-block btn-info"><i class="fa fa-plus"></i> Create new</button></a>
                                 </div>
                             </div>
                         </div>
@@ -64,14 +64,14 @@
                             <table class="table table-hover text-nowrap table-bordered">
                                 <thead>
                                     <tr>
-                                        <th width="4%" class=" text-center">STT</th>
-                                        <th>Chuyến bay</th>
-                                        <th>Thông tin</th>
-                                        <th>Thời gian bay</th>
-                                        <th>Thông tin giá</th>
-                                        <th>Loại vé</th>
-                                        <th>Trạng thái</th>
-                                        <th class=" text-center">Hành động</th>
+                                        <th width="4%" class=" text-center">No.</th>
+                                        <th>Flight</th>
+                                        <th>Information</th>
+                                        <th>Flight time</th>
+                                        <th>Price information</th>
+                                        <th>Ticket Type</th>
+                                        <th>Status</th>
+                                        <th class=" text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -99,11 +99,11 @@
 
                                                 </td>
                                                 <td style="vertical-align: middle;">
-                                                    <p>Giá : {{ number_format($flight->price,0,',','.') }} vnđ</p>
-                                                    <p>Giá víp : {{ number_format($flight->price_vip,0,',','.') }} vnđ</p>
-                                                    <p> GV trẻ sơ sinh : {{ number_format($flight->baby_ticket,0,',','.') }} vnđ</p>
-                                                    <p>Thuế : {{ $flight->tax_percentage }}</p>
-                                                    <p>Phụ phí : {{ number_format($flight->expense,0,',','.') }} vnđ</p>
+                                                    <p>Price : {{ number_format($flight->price,0,',','.') }} vnđ</p>
+                                                    <p>Vip Price: {{ number_format($flight->price_vip,0,',','.') }} vnđ</p>
+                                                    <p>Ticket price for infants : {{ number_format($flight->baby_ticket,0,',','.') }} vnđ</p>
+                                                    <p>Tax : {{ $flight->tax_percentage }}</p>
+                                                    <p>Surcharge : {{ number_format($flight->expense,0,',','.') }} vnđ</p>
                                                 </td>
                                                 <td style="vertical-align: middle;">
                                                     {{ isset($types[$flight->type]) ? $types[$flight->type] : '' }}

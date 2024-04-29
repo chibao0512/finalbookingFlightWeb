@@ -6,8 +6,8 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-left">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"> <i class="nav-icon fas fa fa-home"></i> Trang chủ</a></li>
-                        <li class="breadcrumb-item"><a href="">Thông tin tài khoản</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"> <i class="nav-icon fas fa fa-home"></i> Dashboad</a></li>
+                        <li class="breadcrumb-item"><a href="">Account information</a></li>
                     </ol>
                 </div>
             </div>
@@ -67,9 +67,9 @@
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="settings">
                                         <div class="form-group row">
-                                            <label for="inputName" class="col-sm-2 col-form-label">Họ và tên  <sup class="title-sup">(*)</sup></label>
+                                            <label for="inputName" class="col-sm-2 col-form-label">Full name  <sup class="title-sup">(*)</sup></label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputName" placeholder="Họ và tên" value="{{old('name', isset($user->name) ? $user->name : '')}}" readonly>
+                                                <input type="text" class="form-control" id="inputName" placeholder="Full name" value="{{old('name', isset($user->name) ? $user->name : '')}}" readonly>
                                                 <span class="text-danger "><p class="mg-t-5">{{ $errors->first('name') }}</p></span>
                                             </div>
                                         </div>
@@ -88,7 +88,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="inputName2" class="col-sm-2 col-form-label">Ngày sinh</label>
+                                            <label for="inputName2" class="col-sm-2 col-form-label">Date of birth</label>
                                             <div class="col-10">
                                                 <input name="birthday" type="date" class="form-control" value="{{ old('birthday', isset($user->birthday) ? date('Y-m-d',strtotime($user->birthday)) : '') }}">
                                                 <span class="text-danger "><p class="mg-t-5">{{ $errors->first('birthday') }}</p></span>
@@ -103,18 +103,18 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label for="inputName2" class="col-sm-2 col-form-label">Giới tính</label>
+                                            <label for="inputName2" class="col-sm-2 col-form-label">Gender</label>
                                             <div class="col-sm-10">
                                                 <div class="icheck-primary d-inline">
                                                     <input type="radio" id="radio-gender-1" name="gender" value="1" @if (isset($user)) {{ isset($user) && $user->gender == 1 ? 'checked' : '' }} @else checked @endif>
                                                     <label for="radio-gender-1">
-                                                        Nam
+                                                        Male
                                                     </label>
                                                 </div>
                                                 <div class="icheck-primary d-inline" style="margin-left: 30px;">
                                                     <input type="radio" id="radio-gender-2" name="gender" value="2" @if (isset($user)) {{ isset($user) && $user->gender == 2 ? 'checked' : '' }} @endif>
                                                     <label for="radio-gender-2">
-                                                        Nữ
+                                                        Female
                                                     </label>
                                                 </div>
                                             </div>
@@ -123,7 +123,7 @@
                                         <div class="form-group row">
                                             <div class="offset-sm-2 col-sm-10">
                                                 <button type="submit" name="submit" class="btn btn-info" value="{{ isset($user) ? 'update' : 'create' }}">
-                                                    <i class="fa fa-save"></i> Cập nhật thông tin
+                                                    <i class="fa fa-save"></i> Update
                                                 </button>
                                             </div>
                                         </div>
@@ -131,8 +131,7 @@
                                     </div>
                                     <!-- /.tab-pane -->
                                 </div>
-                                <p>** Nếu bạn cần sửa thông tin trường email hãy liên hệ với Admin qua thư nội bộ,
-                                    <a href="">tại đây.</a></p>
+                               
                                 <!-- /.tab-content -->
                             </div><!-- /.card-body -->
                         </div>

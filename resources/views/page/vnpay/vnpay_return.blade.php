@@ -18,23 +18,23 @@
 <!--Begin display -->
 <div class="container">
     <div class="header clearfix">
-        <h3 class="text-muted">Thông tin đơn hàng</h3>
+        <h3 class="text-muted">Information order</h3>
     </div>
     <div class="table-responsive">
         <div class="form-group">
-            <label >Mã đơn hàng: {{ $vnpayData['vnp_TxnRef'] }}</label>
+            <label >Code orders: {{ $vnpayData['vnp_TxnRef'] }}</label>
             <label></label>
         </div>
         <div class="form-group">
-            <label >Số tiền:</label>
+            <label >Amount:</label>
             <label> {{ number_format($vnpayData['vnp_Amount'] / 100,0,',','.') }} VNĐ</label>
         </div>
         <div class="form-group">
-            <label >Nội dung thanh toán: {{ $vnpayData['vnp_OrderInfo'] }}</label>
+            <label >Content billing: {{ $vnpayData['vnp_OrderInfo'] }}</label>
             <label></label>
         </div>
         <div class="form-group">
-            <label >Mã phản hồi (vnp_ResponseCode): {{ $vnpayData['vnp_ResponseCode'] }}</label>
+            <label >Response code(vnp_ResponseCode): {{ $vnpayData['vnp_ResponseCode'] }}</label>
             <label></label>
         </div>
         <div class="form-group">
@@ -42,20 +42,20 @@
             <label></label>
         </div>
         <div class="form-group">
-            <label >Mã Ngân hàng: {{ $vnpayData['vnp_BankCode'] }}</label>
+            <label >Bank Code: {{ $vnpayData['vnp_BankCode'] }}</label>
             <label></label>
         </div>
         <div class="form-group">
-            <label >Thời gian thanh toán: {{ date('Y-m-d H:i', strtotime($vnpayData['vnp_PayDate'])) }}</label>
+            <label >Payment time: {{ date('Y-m-d H:i', strtotime($vnpayData['vnp_PayDate'])) }}</label>
             <label></label>
         </div>
         <div class="form-group">
-            <label >Kết quả: GD Thanh cong</label>
+            <label >Result: Education Successful</label>
             <label>
             </label>
             <br>
             <a href="{{ route('user.home.index') }}">
-                <button>Quay lại</button>
+                <button>Back</button>
             </a>
         </div>
     </div>
@@ -63,7 +63,7 @@
         &nbsp;
     </p>
     <footer class="footer">
-        <p>&copy; Quản lý Tiếng Anh 2024</p>
+        <p>&copy; </p>
     </footer>
 </div>
 </body>
