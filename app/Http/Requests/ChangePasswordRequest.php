@@ -35,10 +35,10 @@ class ChangePasswordRequest extends FormRequest
     public function messages()
     {
         return [
-            'c_password.required' => 'Vui lòng nhập mật khẩu hiện tại',
-            'password.required' => 'Vui lòng nhập vào mật khẩu mới',
-            'password_confirm.required' => 'Vui lòng nhập lại mật khẩu',
-            'password_confirm.same' => 'Mật khẩu không trùng khớp',
+            'c_password.required' => 'Please enter current password',
+            'password.required' => 'Please enter a new password',
+            'password_confirm.required' => 'Please re-enter your password',
+            'password_confirm.same' => 'Passwords do not match',
 
         ];
     }

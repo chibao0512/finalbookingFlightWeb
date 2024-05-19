@@ -18,3 +18,5 @@
         <li><a href="{{ $paginator->nextPageUrl() }}">&gt;</a></li>
     </ul>
 @endif
+
+

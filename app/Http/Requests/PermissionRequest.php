@@ -34,11 +34,11 @@ class PermissionRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Vui lòng nhập vào tên quyền',
-            'name.unique' => 'Tên quyền không thể trùng nhau',
-            'name.max' => 'Tên quyền vượt quá số ký tự cho phép',
-            'description.max' => 'Mô tả vượt quá số ký tự cho phép',
-            'group_permission_id.required' => 'Vui lòng chọn nhóm quyền',
+            'name.required' => 'Please enter a permission name',
+            'name.unique' => 'Permission names cannot be the same',
+            'name.max' => 'The permission name exceeds the allowed number of characters',
+            'description.max' => 'Description exceeds the allowed number of characters',
+            'group_permission_id.required' => 'Please select a permission group',
         ];
     }
 }

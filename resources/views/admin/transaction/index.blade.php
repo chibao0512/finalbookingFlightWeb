@@ -30,11 +30,7 @@
                         <div class="card-body">
                             <form action="">
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-3">
-                                        <div class="form-group">
-                                            <input type="text" name="code_no" class="form-control mg-r-15" placeholder="Mã giao dịch">
-                                        </div>
-                                    </div>
+                                    
                                     
                                     <div class="col-sm-12 col-md-2">
                                         <div class="form-group">
@@ -116,7 +112,7 @@
                                             @if ($transaction->baby)
                                                 <p style="margin-bottom: 0px;">Baby : {{ $transaction->baby }}</p>
                                             @endif
-                                            <p style="margin-bottom: 0px;">Phương thức TT : {{ $transaction->payment_method == 'payment' ? 'Chuyển khoản' : 'Thanh toán online' }}</p>
+                                            <p style="margin-bottom: 0px;">Payment Method : {{ $transaction->payment_method == 'payment' ? 'Bank transfer' : 'Payment online' }}</p>
                                         </td>
                                         <td style="vertical-align: middle">
                                             @if ($transaction->payment)
@@ -129,7 +125,7 @@
 
                                                 </ul>
                                             @else
-                                                Chuyển khoản
+                                              Bank transfer
                                             @endif
                                         </td>
                                         <td style="vertical-align: middle;">

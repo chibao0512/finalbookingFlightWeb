@@ -41,20 +41,20 @@ class FlightRequest extends FormRequest
     public function messages()
     {
         return [
-            'code_no.required' => 'Dữ liệu không thể để trống',
-            'code_no.unique' => 'Dữ liệu đã bị trùng',
-            'code_no.max' => 'Vượt quá số ký tự cho phép',
-            'plane_id.required' => 'Dữ liệu không thể để trống',
-            'start_location_id.required' => 'Dữ liệu không thể để trống',
-            'start_airport_id.required' => 'Dữ liệu không thể để trống',
-            'end_location_id.required' => 'Dữ liệu không thể để trống',
-            'end_airport_id.required' => 'Dữ liệu không thể để trống',
-            'start_day.required' => 'Dữ liệu không thể để trống',
-            'end_day.required' => 'Dữ liệu không thể để trống',
-            'price.required' => 'Dữ liệu không thể để trống',
-            'price_vip.required' => 'Dữ liệu không thể để trống',
-            'status.required' => 'Dữ liệu không thể để trống',
-            'end_day.after' => 'Ngày về phải lớn hơn ngày đi',
+            'code_no.required' => 'Data cannot be empty',
+            'code_no.unique' => 'Data has been duplicated',
+            'code_no.max' => 'Exceeded the allowed number of characters',
+            'plane_id.required' => 'Data cannot be empty',
+            'start_location_id.required' => 'Data cannot be empty',
+            'start_airport_id.required' => 'Data cannot be empty',
+            'end_location_id.required' => 'Data cannot be empty',
+            'end_airport_id.required' => 'Data cannot be empty',
+            'start_day.required' => 'Data cannot be empty',
+            'end_day.required' => 'Data cannot be empty',
+            'price.required' => 'Data cannot be empty',
+            'price_vip.required' => 'Data cannot be empty',
+            'status.required' => 'Data cannot be empty',
+            'end_day.after' => 'Return date must be greater than departure date',
         ];
     }
 }

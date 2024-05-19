@@ -37,15 +37,15 @@ class RegisterRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Dữ liệu không được phép để trống.',
-            'email.required' => 'Dữ liệu không được phép để trống.',
-            'email.unique' => 'Dữ liệu không thể trùng lặp',
-            'email.max' => 'Dữ liệu vượt quá số ký tự cho phép',
-            'password.required' => 'Dữ liệu không được phép để trống.',
-            'password_confirm.required' => 'Dữ liệu không được phép để trống.',
-            'password_confirm.same' => 'Mật khẩu không trùng khớp',
-            'gender.required' => 'Dữ liệu không được phép để trống.',
-            'birthday.required' => 'Dữ liệu không được phép để trống.',
+            'name.required' => 'Data is not allowed to be empty.',
+            'email.required' => 'Data cannot be empty.',
+            'email.unique' => 'Data cannot be duplicated',
+            'email.max' => 'Data exceeds the allowed number of characters',
+            'password.required' => 'Data is not allowed to be empty.',
+            'password_confirm.required' => 'Data is not allowed to be empty.',
+            'password_confirm.same' => 'Passwords do not match',
+            'gender.required' => 'Data cannot be blank.',
+            'birthday.required' => 'Data cannot be empty.',
         ];
     }
 }

@@ -81,16 +81,16 @@
                                             <tr>
                                                 <td style="vertical-align: middle; width:3%;" class=" text-center">{{ $i }}</td>
                                                 <td style="vertical-align: middle; width:15%;">
-                                                    <p>Mã : {{ $flight->code_no }}</p>
-                                                    <p>Chuyến bay : {{ isset($flight->plane) ? $flight->plane->name : '' }}</p>
-                                                    <p>Hãng máy bay : {{ isset($flight->plane) && isset($flight->plane->airline_company) ? $flight->plane->airline_company->name : '' }}</p>
+                                                    <p>Code : {{ $flight->code_no }}</p>
+                                                    <p>Flght : {{ isset($flight->plane) ? $flight->plane->name : '' }}</p>
+                                                    <p>Airline : {{ isset($flight->plane) && isset($flight->plane->airline_company) ? $flight->plane->airline_company->name : '' }}</p>
                                                 </td>
                                                 <td style="vertical-align: middle; width:15%;">
-                                                    <p>Điểm đi : {{ isset($flight->start_location) ? $flight->start_location->name : '' }}</p>
-                                                    <p>Sân bay : {{ isset($flight->start_airport) ? $flight->start_airport->name : '' }}</p>
-                                                    <p>Điểm đến : {{ isset($flight->start_location) ? $flight->end_location->name : '' }}</p>
-                                                    <p>Sân bay : {{ isset($flight->end_airport) ? $flight->end_airport->name : '' }}</p>
-                                                    <p>Thời gian bay : {{ diffTimeRun($flight->start_day, $flight->end_day) }} phút</p>
+                                                    <p>Departure : {{ isset($flight->start_location) ? $flight->start_location->name : '' }}</p>
+                                                    <p>Airport : {{ isset($flight->start_airport) ? $flight->start_airport->name : '' }}</p>
+                                                    <p>Destination  : {{ isset($flight->start_location) ? $flight->end_location->name : '' }}</p>
+                                                    <p>Airport : {{ isset($flight->end_airport) ? $flight->end_airport->name : '' }}</p>
+                                                    <p>Flight time : {{ diffTimeRun($flight->start_day, $flight->end_day) }} phút</p>
                                                 </td>
                                                 <td style="vertical-align: middle; width:15%; text-align: center">
                                                    {{ convertDatetimeLocal($flight->start_day) }}

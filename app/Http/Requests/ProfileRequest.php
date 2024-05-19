@@ -36,14 +36,14 @@ class ProfileRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Vui lòng nhập vào tên tài khoản',
-            'email.unique' => 'Tên tài khoản không thể trùng lặp',
-            'email.max' => 'Tên tài khoản vượt quá số ký tự cho phép',
-            'images.image'               => 'Vui lòng nhập đúng định dạng file ảnh',
-            'images.mimes'               => 'Vui lòng nhập đúng định dạng file ảnh',
-            'phone.required'     => 'Vui lòng nhập vào số điện thoại',
-            'phone.regex'     => 'Không đúng định dạng dữ liệu',
-            'phone.unique'     => 'Số điện thoại không được phép trùng lặp',
+            'name.required' => 'Please enter account name',
+            'email.unique' => 'Account name cannot be duplicated',
+            'email.max' => 'Account name exceeds the allowed number of characters',
+            'images.image' => 'Please enter the correct image file format',
+            'images.mimes' => 'Please enter the correct image file format',
+            'phone.required' => 'Please enter a phone number',
+            'phone.regex' => 'Incorrect data format',
+            'phone.unique' => 'Phone numbers are not allowed to be duplicates',
         ];
     }
 }

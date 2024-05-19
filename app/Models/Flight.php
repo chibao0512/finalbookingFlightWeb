@@ -46,13 +46,13 @@ class Flight extends Model
     ];
 
     const TYPES = [
-        1 => 'Một chiều',
-        2 => 'Khứ hồi'
+        1 => 'One-Way',
+        2 => 'Round-TRip'
     ];
 
     const TICKET_CLASS = [
-        1 => 'Vé thường',
-        2 => 'Vé vip',
+        1 => 'Regular tickets',
+        2 => 'Vip tickets',
     ];
 
     /**

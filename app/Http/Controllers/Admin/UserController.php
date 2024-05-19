@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use App\Models\Role;
+use Illuminate\Support\Facades\DB;
+
 
 class UserController extends Controller
 {
@@ -55,7 +57,7 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
         //
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $user = new User();
             $user->name = $request->name;
@@ -69,13 +71,13 @@ class UserController extends Controller
                     $user->avatar = $image['name'];
             }
             if ($user->save()) {
-                \DB::table('role_user')->insert(['role_id'=> $request->role, 'user_id'=> $user->id]);
+                DB::table('role_user')->insert(['role_id'=> $request->role, 'user_id'=> $user->id]);
             }
 
-            \DB::commit();
-            return redirect()->back()->with('success','Thêm mới thành công');
+            DB::commit();
+            return redirect()->back()->with('success','Create new successfully');
         } catch (\Exception $exception) {
-            \DB::rollBack();
+            DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
         }
     }
@@ -96,7 +98,7 @@ class UserController extends Controller
                 $userRole->select('*');
             }
         ])->find($id);
-        $listRoleUser = \DB::table('role_user')->where('user_id', $id)->first();
+        $listRoleUser = DB::table('role_user')->where('user_id', $id)->first();
         if(!$user) {
             return redirect()->route('get.list.user')->with('danger', 'Quyền không tồn tại');
         }
@@ -118,7 +120,7 @@ class UserController extends Controller
     public function update(UserRequest $request, $id)
     {
         //
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $user = User::find($id);
             $user->name = $request->name;
@@ -132,14 +134,14 @@ class UserController extends Controller
                     $user->avatar = $image['name'];
             }
             if ($user->save()) {
-                \DB::table('role_user')->where('user_id', $id)->delete();
-                \DB::table('role_user')->insert(['role_id'=> $request->role, 'user_id'=> $user->id]);
+                DB::table('role_user')->where('user_id', $id)->delete();
+                DB::table('role_user')->insert(['role_id'=> $request->role, 'user_id'=> $user->id]);
             }
 
-            \DB::commit();
-            return redirect()->back()->with('success','Chỉnh sửa thành công');
+            DB::commit();
+            return redirect()->back()->with('success','Update successfully');
         } catch (\Exception $exception) {
-            \DB::rollBack();
+            DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
         }
     }
@@ -157,13 +159,13 @@ class UserController extends Controller
         if (!$user) {
             return redirect()->back()->with('error', 'Dữ liệu không tồn tại');
         }
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $user->delete();
-            \DB::commit();
-            return redirect()->back()->with('success','Đã xóa thành công');
+            DB::commit();
+            return redirect()->back()->with('success','Delete Successfully');
         } catch (\Exception $exception) {
-            \DB::rollBack();
+            DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
         }
     }

@@ -192,13 +192,13 @@
                                                 <p style="margin-bottom: 0px;">{{ $transaction->email }}</p>
                                             @endif
                                             @if ($transaction->adult)
-                                                <p style="margin-bottom: 0px;">Người lớn : {{ $transaction->adult }}</p>
+                                                <p style="margin-bottom: 0px;">Aduit : {{ $transaction->adult }}</p>
                                             @endif
                                             @if ($transaction->children)
-                                                <p style="margin-bottom: 0px;">Trẻ em : {{ $transaction->children }}</p>
+                                                <p style="margin-bottom: 0px;">Children : {{ $transaction->children }}</p>
                                             @endif
                                             @if ($transaction->baby)
-                                                <p style="margin-bottom: 0px;">Em bé : {{ $transaction->baby }}</p>
+                                                <p style="margin-bottom: 0px;">Baby : {{ $transaction->baby }}</p>
                                             @endif
                                             <p>Payment method: {{ $transaction->payment_method == 'payment' ? 'Transfer' : 'Payment online' }}</p>
                                         </td>

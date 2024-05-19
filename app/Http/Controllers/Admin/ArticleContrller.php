@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Category;
 use App\Http\Requests\ArticleRequest;
+use Illuminate\Support\Facades\DB;
+
 
 class ArticleContrller extends Controller
 {
@@ -63,13 +65,13 @@ class ArticleContrller extends Controller
     public function store(ArticleRequest $request)
     {
         //
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $this->article->createOrUpdate($request);
-            \DB::commit();
-            return redirect()->back()->with('success', 'Lưu dữ liệu thành công');
+            DB::commit();
+            return redirect()->back()->with('success', 'Save Successfully');
         } catch (\Exception $exception) {
-            \DB::rollBack();
+            DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
         }
 
@@ -104,13 +106,13 @@ class ArticleContrller extends Controller
     public function update(ArticleRequest $request, $id)
     {
         //
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $this->article->createOrUpdate($request, $id);
-            \DB::commit();
-            return redirect()->back()->with('success', 'Lưu dữ liệu thành công');
+            DB::commit();
+            return redirect()->back()->with('success', 'Save Successfully');
         } catch (\Exception $exception) {
-            \DB::rollBack();
+            DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
         }
     }
@@ -131,7 +133,7 @@ class ArticleContrller extends Controller
 
         try {
             $article->delete();
-            return redirect()->back()->with('success', 'Xóa thành công');
+            return redirect()->back()->with('success', 'Delete succesfully');
         } catch (\Exception $exception) {
             return redirect()->back()->with('error', 'Đã xảy ra lỗi không thể xóa dữ liệu');
         }

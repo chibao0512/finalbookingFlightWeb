@@ -27,7 +27,7 @@
             </div>
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4 ml-md-4">
-                    <h2 class="ftco-heading-2">Danh mục</h2>
+                    <h2 class="ftco-heading-2">Category</h2>
                     <ul class="list-unstyled">
                         <li><a href="{{ route('user.home.index') }}" class="nav-link">Dashboad</a></li>
                         @foreach($categories as $category)
@@ -71,12 +71,12 @@
             </div>
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Thông tin liên hệ</h2>
+                    <h2 class="ftco-heading-2">Contact Information</h2>
                     <div class="block-23 mb-3">
                         <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text">ABAY TẠI HÀ NỘI 324 Phố Huế, Q.Hai Bà Trưng, Hà N</span></li>
+                            <li><span class="icon icon-map-marker"></span><span class="text">BBAY IN CAN THO</span></li>
                             <li><a href="#"><span class="icon icon-phone"></span><span class="text">(+024) 7300 6091</span></a></li>
-                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">contact@abay.vn</span></a></li>
+                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">contact@bbay.vn</span></a></li>
                         </ul>
                     </div>
                 </div>

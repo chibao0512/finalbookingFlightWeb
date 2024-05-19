@@ -10,6 +10,8 @@ use App\Models\Location;
 use App\Models\Airport;
 use App\Http\Requests\FlightRequest;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+
 
 class FlightController extends Controller
 {
@@ -85,14 +87,14 @@ class FlightController extends Controller
     public function store(FlightRequest $request)
     {
         //
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $this->flight->createOrUpdate($request);
-            \DB::commit();
-            return redirect()->back()->with('success', 'Lưu dữ liệu thành công');
+            DB::commit();
+            return redirect()->back()->with('success', 'Save Successfully');
         } catch (\Exception $exception) {
-            \DB::rollBack();
-            return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
+            DB::rollBack();
+            return redirect()->back()->with('error', 'An error occurred while saving data');
         }
     }
 
@@ -108,7 +110,7 @@ class FlightController extends Controller
         $flight = Flight::findOrFail($id);
 
         if (!$flight) {
-            return redirect()->back()->with('error', 'Dữ liệu không tồn tại');
+            return redirect()->back()->with('error', 'Data does not exist');
         }
 
         return view('admin.flight.edit', compact('flight'));
@@ -124,14 +126,14 @@ class FlightController extends Controller
     public function update(FlightRequest $request, $id)
     {
         //
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $this->flight->createOrUpdate($request, $id);
-            \DB::commit();
-            return redirect()->back()->with('success', 'Lưu dữ liệu thành công');
+            DB::commit();
+            return redirect()->back()->with('success', 'Save Successfully');
         } catch (\Exception $exception) {
-            \DB::rollBack();
-            return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
+            DB::rollBack();
+            return redirect()->back()->with('error', 'An error occurred while saving data');
         }
     }
 
@@ -147,14 +149,14 @@ class FlightController extends Controller
         $flight = Flight::findOrFail($id);
 
         if (!$flight) {
-            return redirect()->back()->with('error', 'Dữ liệu không tồn tại');
+            return redirect()->back()->with('error', 'Data does not exist');
         }
 
         try {
             $flight->delete();
-            return redirect()->back()->with('success', 'Xóa thành công');
+            return redirect()->back()->with('success', 'Delete Successfully');
         } catch (\Exception $exception) {
-            return redirect()->back()->with('error', 'Đã xảy ra lỗi không thể xóa dữ liệu');
+            return redirect()->back()->with('error', 'An error occurred that the data could not be deleted');
         }
     }
 }

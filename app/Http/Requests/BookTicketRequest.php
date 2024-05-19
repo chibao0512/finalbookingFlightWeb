@@ -41,12 +41,12 @@ class BookTicketRequest extends FormRequest
     public function messages()
     {
         return [
-            'name_contact.required' => 'Dữ liệu không thể để trống',
-            'name_contact.max' => 'Vượt quá số ký tự cho phép',
+            'name_contact.required' => 'Data cannot be empty',
+            'name_contact.max' => 'Exceeded the allowed number of characters',
 
-            'phone_contact.required' => 'Dữ liệu không thể để trống',
-            'phone_contact.regex' => 'Không đúng định dạng cho phép',
-            'email_contact.email' => 'Không đúng định dạng cho phép',
+            'phone_contact.required' => 'no Emtpy',
+            'phone_contact.regex' => 'Invalid format allowed',
+            'email_contact.email' => 'Invalid format allowed',
 
 
         ];

@@ -11,6 +11,7 @@ use App\Models\Flight;
 use App\Models\Ticket;
 use App\Http\Requests\UpdateInfoAccountRequest;
 use App\Http\Requests\ChangePasswordRequest;
+use Illuminate\Support\Facades\DB;
 
 class AccountController extends Controller
 {
@@ -23,7 +24,7 @@ class AccountController extends Controller
 
     public function updateInfoAccount(UpdateInfoAccountRequest $request)
     {
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $user =  User::find(Auth::guard('user')->user()->id);
             $user->name = $request->name;
@@ -33,10 +34,10 @@ class AccountController extends Controller
             $user->birthday = $request->birthday;
             $user->address = $request->address;
             $user->save();
-            \DB::commit();
+            DB::commit();
             return redirect()->back()->with('success', 'Cập nhật thành công.');
         } catch (\Exception $exception) {
-            \DB::rollBack();
+            DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi không thể cập nhật tài khoản');
         }
     }
@@ -48,12 +49,12 @@ class AccountController extends Controller
 
     public function postChangePassword(ChangePasswordRequest $request)
     {
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $user =  User::find(Auth::guard('users')->user()->id);
             $user->password = bcrypt($request->password);
             $user->save();
-            \DB::commit();
+            DB::commit();
             Auth::guard('users')->logout();
             return redirect()->route('page.user.account')->with('success', 'Đổi mật khẩu thành công.');
         } catch (\Exception $exception) {
@@ -83,11 +84,11 @@ class AccountController extends Controller
 
     public function cancelOrder($id)
     {
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
 
 
-            \DB::commit();
+            DB::commit();
             return redirect()->back();
         } catch (\Exception $exception) {
             return redirect()->back();

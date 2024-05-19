@@ -22,7 +22,7 @@
                                 <span style="margin-top: 35px;">{{ $flight->plane->airline_company->name }}</span>
                             </div>
                             <div class="d-flex" style="float: left;">
-                                <p>Máy bay : {{ $flight->plane->name }} ({{ $flight->code_no }})</p>
+                                <p>Flight : {{ $flight->plane->name }} ({{ $flight->code_no }})</p>
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-3 ">
@@ -58,7 +58,7 @@
                                         <button type="button" class="btn btn-success btn-plus-customer" style="float: right;"
                                                 url="{{ route('flight.plus.customer') }}" flight_id="{{ $flight->id }}" type_customer="adult"><i class="fa fa-plus"></i> Add new customer</button>
                                     </div>
-
+                                    
                                 </div>
                                 <hr>
                                 <h2>Children information</h2>

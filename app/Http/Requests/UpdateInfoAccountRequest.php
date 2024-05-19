@@ -34,13 +34,13 @@ class UpdateInfoAccountRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Vui lòng nhập vào họ tên',
-            'email.required' => 'Vui lòng nhập vào email đăng nhập',
-            'email.unique' => 'Email đăng nhập không thể trùng lặp',
-            'email.max' => 'Email vượt quá số ký tự cho phép',
-            'phone.required' => 'Vui lòng nhập số điện thoại liên hệ',
-            'phone.regex'     => 'Không đúng định dạng dữ liệu',
-            'phone.unique'     => 'Số điện thoại không được phép trùng lặp',
+            'name.required' => 'Please enter your full name',
+            'email.required' => 'Please enter your login email',
+            'email.unique' => 'Login email cannot be duplicated',
+            'email.max' => 'Email exceeds the allowed number of characters',
+            'phone.required' => 'Please enter a contact phone number',
+            'phone.regex' => 'Incorrect data format',
+            'phone.unique' => 'Phone numbers are not allowed to be duplicates',
 
         ];
     }

@@ -33,7 +33,7 @@ class PaymentRequest extends FormRequest
     public function messages()
     {
         return [
-            'seats.required' => 'Vui lòng chọn ghế',
+            'seats.required' => 'Please select seats',
         ];
     }
 }

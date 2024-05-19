@@ -8,7 +8,7 @@
                     <div class="card-body" style="min-height: 445px;">
                         <div class="row">
                             <div class="form-group {{ $errors->first('plane_id') ? 'has-error' : '' }} col-md-6">
-                                <label for="inputEmail3" class="control-label default">Máy bay <sup class="text-danger">(*)</sup></label>
+                                <label for="inputEmail3" class="control-label default">Plane <sup class="text-danger">(*)</sup></label>
                                 <select class="custom-select select2" name="plane_id">
                                     <option value="">Choose airline</option>
                                     @foreach($planes as $plane)
@@ -25,7 +25,7 @@
                             <div class="form-group {{ $errors->first('code_no') ? 'has-error' : '' }} col-md-6">
                                 <label for="inputEmail3" class="control-label default">Flight code<sup class="text-danger">(*)</sup></label>
                                 <div>
-                                    <input type="text" maxlength="100" class="form-control"  placeholder="Mã chuyến bay" name="code_no" value="{{ old('code_no',isset($flight) ? $flight->code_no : '') }}">
+                                    <input type="text" maxlength="100" class="form-control"  placeholder="Flight Code" name="code_no" value="{{ old('code_no',isset($flight) ? $flight->code_no : '') }}">
                                     <span class="text-danger "><p class="mg-t-5">{{ $errors->first('code_no') }}</p></span>
                                 </div>
                             </div>
@@ -146,7 +146,7 @@
                             <button type="submit" name="submit" class="btn btn-info">
                                 <i class="fa fa-save"></i> Save Data
                             </button>
-                            <a href="{{ route('plane.index') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Back</a>
+                            <a href="{{ route('flight.index') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Back</a>
                         </div>
                     </div>
                     <!-- /.card-body -->

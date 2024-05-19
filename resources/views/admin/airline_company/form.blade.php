@@ -10,14 +10,14 @@
                             <div class="form-group {{ $errors->first('code_no') ? 'has-error' : '' }} col-md-6">
                                 <label for="inputEmail3" class="control-label default">Airline Code <sup class="text-danger">(*)</sup></label>
                                 <div>
-                                    <input type="text" maxlength="100" class="form-control"  placeholder="Mã hãng máy bay" name="code_no" value="{{ old('code_no',isset($airlineCompany) ? $airlineCompany->code_no : '') }}">
+                                    <input type="text" maxlength="100" class="form-control"  placeholder="Airline Code" name="code_no" value="{{ old('code_no',isset($airlineCompany) ? $airlineCompany->code_no : '') }}">
                                     <span class="text-danger "><p class="mg-t-5">{{ $errors->first('code_no') }}</p></span>
                                 </div>
                             </div>
                             <div class="form-group {{ $errors->first('name') ? 'has-error' : '' }} col-md-6" >
                                 <label for="inputEmail3" class="control-label default">Airline name <sup class="text-danger">(*)</sup></label>
                                 <div>
-                                    <input type="text" class="form-control"  placeholder="Tên hãng máy bay" name="name" value="{{ old('name',isset($airlineCompany) ? $airlineCompany->name : '') }}">
+                                    <input type="text" class="form-control"  placeholder="Arline Name" name="name" value="{{ old('name',isset($airlineCompany) ? $airlineCompany->name : '') }}">
                                     <span class="text-danger "><p class="mg-t-5">{{ $errors->first('name') }}</p></span>
                                 </div>
                             </div>

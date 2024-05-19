@@ -9,22 +9,22 @@ var init_function = {
     },
     bs_input_file: function () {
         $(".input-file").before(
-            function() {
-                if ( ! $(this).prev().hasClass('input-ghost') ) {
+            function () {
+                if (!$(this).prev().hasClass('input-ghost')) {
                     var element = $("<input type='file' class='input-ghost' id='input_img' style='visibility:hidden; height:0'>");
-                    element.attr("name",$(this).attr("name"));
-                    element.change(function(){
+                    element.attr("name", $(this).attr("name"));
+                    element.change(function () {
                         element.next(element).find('input').val((element.val()).split('\\').pop());
                     });
-                    $(this).find("button.btn-choose").click(function(){
+                    $(this).find("button.btn-choose").click(function () {
                         element.click();
                     });
-                    $(this).find("button.btn-reset").click(function(){
+                    $(this).find("button.btn-reset").click(function () {
                         element.val(null);
                         $(this).parents(".input-file").find('input').val('');
                     });
-                    $(this).find('input').css("cursor","pointer");
-                    $(this).find('input').mousedown(function() {
+                    $(this).find('input').css("cursor", "pointer");
+                    $(this).find('input').mousedown(function () {
                         $(this).parents('.input-file').prev().click();
                         return false;
                     });
@@ -33,12 +33,12 @@ var init_function = {
             }
         );
     },
-    showImage: function() {
-        $("#input_img").change(function() {
+    showImage: function () {
+        $("#input_img").change(function () {
             if (this.files && this.files[0]) {
                 var reader = new FileReader();
 
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     $('#image_render').attr('src', e.target.result);
                     $('#image_render').css('height', '200px');
                     $('#image_render').css('display', 'block');
@@ -48,7 +48,7 @@ var init_function = {
             }
         });
     },
-    preview : function () {
+    preview: function () {
         $(".btn-preview").click(function (event) {
             event.preventDefault();
             let url = $(this).attr('href');
@@ -56,9 +56,8 @@ var init_function = {
                 url: url,
                 type: 'POST',
                 dataType: 'json',
-            }).done(function (result) {
-                if (result.html)
-                {
+           }).done(function (result) {
+                if (result.html) {
                     $("#preview").html('').append(result.html);
                     $(".preview").modal('show');
                 }
@@ -70,20 +69,20 @@ var init_function = {
 $(function () {
     init_function.init();
     $('.btn-confirm-delete').confirm({
-        title: 'Xóa dữ liệu',
-        content: "Bạn có chăc chắn muốn xóa dữ liệu ?",
+        title: 'Delete',
+        content: " Are you sure you want delete this data ?",
         icon: 'fa fa-warning',
         type: 'red',
         buttons: {
             confirm: {
-                text: 'Xác nhận',
+                text: 'Yes',
                 btnClass: 'btn-blue',
                 action: function () {
                     location.href = this.$target.attr('href');
                 }
             },
             cancel: {
-                text: 'Hủy',
+                text: 'Cancel',
                 btnClass: 'btn-danger',
                 action: function () {
                 }

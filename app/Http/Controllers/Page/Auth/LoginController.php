@@ -45,7 +45,7 @@ class LoginController extends Controller
 
     public function login()
     {
-        if (\Auth::guard('user')->check()) {
+        if (Auth::guard('user')->check()) {
             return redirect()->back();
         }
 

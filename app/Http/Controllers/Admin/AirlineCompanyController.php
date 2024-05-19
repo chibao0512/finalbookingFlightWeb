@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
-
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\AirlineCompany;
 use App\Http\Requests\AirlineCompanyRequest;
+use Illuminate\Support\Facades\DB; // Import the DB facade
 
 class AirlineCompanyController extends Controller
 {
@@ -62,19 +61,19 @@ class AirlineCompanyController extends Controller
     public function store(AirlineCompanyRequest $request)
     {
         //
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $this->airlineCompany->createOrUpdate($request);
-            \DB::commit();
-            return redirect()->back()->with('success', 'Lưu dữ liệu thành công');
+            DB::commit();
+            return redirect()->back()->with('success', 'Save Successfully');
         } catch (\Exception $exception) {
-            \DB::rollBack();
+            DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
         }
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified resource
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -101,13 +100,13 @@ class AirlineCompanyController extends Controller
     public function update(AirlineCompanyRequest $request, $id)
     {
         //
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $this->airlineCompany->createOrUpdate($request, $id);
-            \DB::commit();
-            return redirect()->back()->with('success', 'Lưu dữ liệu thành công');
+            DB::commit();
+            return redirect()->back()->with('success', 'Save Successfully');
         } catch (\Exception $exception) {
-            \DB::rollBack();
+            DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
         }
     }
@@ -128,7 +127,7 @@ class AirlineCompanyController extends Controller
 
         try {
             $airlineCompany->delete();
-            return redirect()->back()->with('success', 'Xóa thành công');
+            return redirect()->back()->with('success', 'Delete successfully');
         } catch (\Exception $exception) {
             return redirect()->back()->with('error', 'Đã xảy ra lỗi không thể xóa dữ liệu');
         }

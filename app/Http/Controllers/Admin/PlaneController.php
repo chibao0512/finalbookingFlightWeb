@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Plane;
 use App\Models\AirlineCompany;
 use App\Http\Requests\PlaneRequest;
+use Illuminate\Support\Facades\DB;
+
 
 class PlaneController extends Controller
 {
@@ -67,13 +69,13 @@ class PlaneController extends Controller
     public function store(PlaneRequest $request)
     {
         //
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $this->plane->createOrUpdate($request);
-            \DB::commit();
-            return redirect()->back()->with('success', 'Lưu dữ liệu thành công');
+            DB::commit();
+            return redirect()->back()->with('success', 'Save Successfully');
         } catch (\Exception $exception) {
-            \DB::rollBack();
+            DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
         }
     }
@@ -107,13 +109,13 @@ class PlaneController extends Controller
     {
         //
         //
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $this->plane->createOrUpdate($request, $id);
-            \DB::commit();
-            return redirect()->back()->with('success', 'Lưu dữ liệu thành công');
+            DB::commit();
+            return redirect()->back()->with('success', 'Save Successfully');
         } catch (\Exception $exception) {
-            \DB::rollBack();
+            DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
         }
     }
@@ -134,7 +136,7 @@ class PlaneController extends Controller
 
         try {
             $plane->delete();
-            return redirect()->back()->with('success', 'Xóa thành công');
+            return redirect()->back()->with('success', 'Delete Successfully');
         } catch (\Exception $exception) {
             return redirect()->back()->with('error', 'Đã xảy ra lỗi không thể xóa dữ liệu');
         }

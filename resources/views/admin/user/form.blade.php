@@ -2,48 +2,12 @@
     <form role="form" action="" method="post" enctype="multipart/form-data">
         @csrf
         <div class="row">
-            <div class="col-md-3">
-                <!-- Profile Image -->
-                <div class="card card-primary card-outline">
-                    <div class="card-body box-profile">
-                        <div class="text-center">
-                            @if(isset($user) && !empty($user->avatar))
-                                <img src="{{ asset(pare_url_file($user->avatar)) }}" alt="" class=" margin-auto-div img-rounded profile-user-img img-fluid img-circle"  id="image_render" style="height: 150px; width:150px;">
-                            @else
-                                <img alt="" class="margin-auto-div img-rounded profile-user-img img-fluid img-circle" src="{{ asset('admin/dist/img/avatar5.png') }}" id="image_render" style="height: 150px; width:150px;">
-                            @endif
-                        </div>
-                        @if (isset($user->name))
-                            <h3 class="profile-username text-center">{{ $user->name }}</h3>
-                        @endif
-                        @if (isset($user->email))
-                            <p class="text-muted text-center">{{ $user->email }}</p>
-                        @endif
-                        @if (isset($user->phone))
-                            <p class="text-muted text-center">{{ $user->phone }}</p>
-                        @endif
-                        @if (isset($user->userRole))
-                            <p class="text-muted text-center">{{ isset($user->userRole[0]) ? $user->userRole[0]->display_name : '' }}</p>
-                        @endif
-                        <div class="form-group">
-                            <div class="input-group input-file" name="images">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default btn-choose" type="button">Choose file</button>
-                                    </span>
-                                <input type="text" class="form-control" placeholder='No file choosing...'/>
-                                <span class="input-group-btn"></span>
-                            </div>
-                            <span class="text-danger "><p class="mg-t-5">{{ $errors->first('images') }}</p></span>
-
-                        </div>
-                    </div>
-                    <!-- /.card-body -->
-                </div>
-                <!-- /.card -->
+            <div class="col-md-2">
+                
             </div>
             <?php //dd($errors) ?>
             <!-- /.col -->
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
                         <div class="tab-content">
@@ -125,6 +89,11 @@
                 </div>
                 <!-- /.nav-tabs-custom -->
             </div>
+            <div class="col-md-2">
+                
+            </div>
+            <?php //dd($errors) ?>
+            <!-- /.col -->
             <!-- /.col -->
         </div>
     </form>

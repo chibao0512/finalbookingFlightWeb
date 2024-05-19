@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PermissionRequest;
 use App\Models\Permission;
 use App\Models\GroupPermission;
+use Illuminate\Support\Facades\DB;
+
 
 class PermissionController extends Controller
 {
@@ -55,13 +57,13 @@ class PermissionController extends Controller
     public function store(PermissionRequest $request)
     {
         //
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $this->createOrUpdate($request);
-            \DB::commit();
-            return redirect()->back()->with('success', 'Thêm mới thành công');
+            DB::commit();
+            return redirect()->back()->with('success', 'Create new successfully');
         } catch (\Exception $exception) {
-            \DB::rollBack();
+            DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
         }
     }
@@ -94,13 +96,13 @@ class PermissionController extends Controller
     public function update(Request $request, $id)
     {
         //
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $this->createOrUpdate($request, $id);
-            \DB::commit();
-            return redirect()->back()->with('success', 'Chỉnh sửa thành công');
+            DB::commit();
+            return redirect()->back()->with('success', 'Update successfully');
         } catch (\Exception $exception) {
-            \DB::rollBack();
+            DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
         }
     }
@@ -121,7 +123,7 @@ class PermissionController extends Controller
 
         try {
             $permission->delete();
-            return redirect()->back()->with('success', 'Xóa thành công');
+            return redirect()->back()->with('success', 'Delete succesfully');
         } catch (\Exception $exception) {
             return redirect()->back()->with('error', 'Đã xảy ra lỗi không thể xóa dữ liệu');
         }

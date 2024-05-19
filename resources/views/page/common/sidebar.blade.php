@@ -1,7 +1,7 @@
 <div class="col-lg-4 sidebar">
     <form action="{{ route('user.flight.search') }}" class="search-form mb-3">
     <div class="sidebar-box bg-white p-4 ftco-animate fadeInUp ftco-animated">
-        <h3 class="heading-sidebar">Tìm kiếm</h3>
+        <h3 class="heading-sidebar">Search</h3>
             <div class="form-group">
                 <div class="form-field">
                     <lable for="start_location" style="float: left;">Departure</lable>

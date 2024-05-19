@@ -2,8 +2,8 @@
 require_once 'function.php';
 
 const STATUS = [
-    2 => 'Bản nháp',
-    1 => 'Xuất bản'
+    2 => 'Draff',
+    1 => 'Publish'
 ];
 const CLASS_STATUS = [
     2 => 'btn-secondary',
@@ -11,15 +11,14 @@ const CLASS_STATUS = [
 ];
 
 const GENDER_ADULT = [
-    1 => 'Anh',
-    2 => 'Chị',
-    3 => 'Ông',
-    4 => 'Bà',
+    1 => 'Sir.',
+    2 => 'Miss',
+    
 ];
 
 const GENDER_BABY = [
-    1 => 'Trẻ em',
-    2 => 'Em bé',
+    1 => 'Children',
+    2 => 'Baby',
 ];
 
 const NUMBER_PAGINATION = 15;

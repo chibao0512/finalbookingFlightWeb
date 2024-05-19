@@ -32,8 +32,8 @@ class GroupPermissionRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required'    => 'Mời bạn nhập nhóm quyền',
-            'name.unique'      => 'Nhóm quyền này đã tồn tại',
+            'name.required' => 'Please enter a permission group',
+            'name.unique' => 'This permission group already exists',
         ];
     }
 }

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Http\Requests\CategoryRequest;
+use Illuminate\Support\Facades\DB;
+
 
 class CategoryController extends Controller
 {
@@ -60,13 +62,13 @@ class CategoryController extends Controller
     public function store(CategoryRequest $request)
     {
         //
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $this->category->createOrUpdate($request);
-            \DB::commit();
-            return redirect()->back()->with('success', 'Lưu dữ liệu thành công');
+            DB::commit();
+            return redirect()->back()->with('success', 'Save Successfully');
         } catch (\Exception $exception) {
-            \DB::rollBack();
+            DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
         }
     }
@@ -99,13 +101,13 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         //
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $this->category->createOrUpdate($request, $id);
-            \DB::commit();
-            return redirect()->back()->with('success', 'Lưu dữ liệu thành công');
+            DB::commit();
+            return redirect()->back()->with('success', 'Save Successfully');
         } catch (\Exception $exception) {
-            \DB::rollBack();
+            DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
         }
     }
@@ -126,7 +128,7 @@ class CategoryController extends Controller
 
         try {
             $category->delete();
-            return redirect()->back()->with('success', 'Xóa thành công');
+            return redirect()->back()->with('success', 'Delete succesfully');
         } catch (\Exception $exception) {
             return redirect()->back()->with('error', 'Đã xảy ra lỗi không thể xóa dữ liệu');
         }

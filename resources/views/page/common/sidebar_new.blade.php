@@ -17,7 +17,7 @@
     </div>
 
     <div class="sidebar-box ftco-animate fadeInUp ftco-animated">
-        <h3 class="heading-3">Tin tức mới</h3>
+        <h3 class="heading-3">News</h3>
         @foreach($articles as $article)
         <div class="block-21 mb-4 d-flex">
             <a class="blog-img mr-4" style="background-image: url({{ !empty($article->image) ? asset(pare_url_file($article->image)) : '' }});"></a>

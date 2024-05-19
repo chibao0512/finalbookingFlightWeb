@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Transaction;
 use App\Models\Flight;
 use App\Models\Ticket;
+use Illuminate\Support\Facades\DB;
+
 
 class TransactionController extends Controller
 {
@@ -73,14 +75,14 @@ class TransactionController extends Controller
             return redirect()->back()->with('error', 'Dữ liệu không tồn tại');
         }
 
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $transaction->status = $status;
             $transaction->save();
-            \DB::commit();
-            return redirect()->back()->with('success', 'Lưu dữ liệu thành công');
+            DB::commit();
+            return redirect()->back()->with('success', 'Save Successfully');
         } catch (\Exception $exception) {
-            \DB::rollBack();
+            DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
         }
     }
@@ -92,13 +94,13 @@ class TransactionController extends Controller
             return redirect()->back()->with('error', 'Dữ liệu không tồn tại');
         }
 
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $transaction->delete();
-            \DB::commit();
-            return redirect()->back()->with('success', 'Lưu dữ liệu thành công');
+            DB::commit();
+            return redirect()->back()->with('success', 'Save Successfully');
         } catch (\Exception $exception) {
-            \DB::rollBack();
+            DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
         }
     }

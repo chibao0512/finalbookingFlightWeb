@@ -62,10 +62,7 @@
             </div>
         </div>
     </section>
-    <section class="ftco-section services-section" style="background-image: url({{ asset('page/images/bg_4.jpg') }}); background-size: 100% 100%; height: 300px">
-        <div class="container"></div>
-    </section>
-
+   
     <section class="ftco-section testimony-section">
         <div class="container">
             <div class="row justify-content-center mb-4">
@@ -98,6 +95,7 @@
             </div>
         </div>
     </section>
+    
 
     {{--<section class="ftco-section-parallax">--}}
         {{--<div class="parallax-img d-flex align-items-center">--}}
@@ -121,6 +119,13 @@
             {{--</div>--}}
         {{--</div>--}}
     {{--</section>--}}
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+      intent="WELCOME"
+      chat-title="Chat AI B-BAY"
+      agent-id="5417c2c2-044b-4e2c-80e1-993266669608"
+      language-code="en"
+    ></df-messenger>
 @stop
 @section('script')
 @stop

@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Location;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\RegisterRequest;
+use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
 {
@@ -48,7 +49,7 @@ class RegisterController extends Controller
      */
     public function register()
     {
-        if (\Auth::guard('user')->check()) {
+        if (Auth::guard('user')->check()) {
             return redirect()->back();
         }
 
@@ -59,7 +60,7 @@ class RegisterController extends Controller
 
     public function postRegister(RegisterRequest $request)
     {
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $params = $request->except('_token', 'password', 'password_confirm');
             $params['password'] = bcrypt($request->password);
@@ -69,10 +70,10 @@ class RegisterController extends Controller
             $user = new User();
             $user->fill($params)->save();
             Auth::guard('user')->loginUsingId($user->id, true);
-            \DB::commit();
+            DB::commit();
             return redirect()->route('user.home.index');
         } catch (\Exception $exception) {
-            \DB::rollBack();
+            DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi không thể đăng ký tài khoản');
         }
     }

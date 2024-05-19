@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Http\Requests\ProfileRequest;
+use Illuminate\Support\Facades\DB;
+
 use App\Http\Requests\ChangePasswordRequest;
 
 class ProfileController extends Controller
@@ -39,7 +41,7 @@ class ProfileController extends Controller
     public function update(ProfileRequest $request, $id)
     {
         //
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $data = $request->except('_token', 'images');
             if (isset($request->images) && !empty($request->images)) {
@@ -49,10 +51,10 @@ class ProfileController extends Controller
             }
 
             User::find($id)->update($data);
-            \DB::commit();
-            return redirect()->route('profile.index')->with('success','Chỉnh sửa thành công');
+            DB::commit();
+            return redirect()->route('profile.index')->with('success','Update successfully');
         } catch (\Exception $exception) {
-            \DB::rollBack();
+            DB::rollBack();
             return redirect()->route('profile.index')->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
         }
     }
@@ -71,8 +73,8 @@ class ProfileController extends Controller
 
         try {
 
-            User::find(\Auth::user()->id)->update($data);
-            \Auth::logout();
+            User::find(Auth::user()->id)->update($data);
+            Auth::logout();
             return redirect()->route('admin.login');
         } catch (\Exception $exception) {
             return redirect()->back()->with('danger', '[Error ]' . $exception->getMessage());

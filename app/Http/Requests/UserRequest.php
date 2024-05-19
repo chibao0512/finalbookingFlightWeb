@@ -41,16 +41,16 @@ class UserRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Dữ liệu không được phép để trống.',
-            'email.required' => 'Dữ liệu không được phép để trống.',
-            'email.unique' => 'Email đã tồn tại.',
-            'aliases.required' => 'Dữ liệu không được phép để trống.',
-            'email.max' => 'Không đúng định dạng cho phép.',
-            'password.required' => 'Vui lòng nhập mật khẩu đăng nhập',
-            'role.required' => 'Vui lòng chọn vai trò của người dùng',
-            'images.image'  => 'Vui lòng nhập đúng định dạng file ảnh',
-            'images.mimes'  => 'Vui lòng nhập đúng định dạng file ảnh',
-            'branch_id.required' => 'Vui lòng chọn chi cục của người dùng',
+            'name.required' => 'Data is not allowed to be empty.',
+            'email.required' => 'Data cannot be empty.',
+            'email.unique' => 'Email already exists.',
+            'aliases.required' => 'Data cannot be empty.',
+            'email.max' => 'Invalid format allowed.',
+            'password.required' => 'Please enter your login password',
+            'role.required' => 'Please select user role',
+            'images.image' => 'Please enter the correct image file format',
+            'images.mimes' => 'Please enter the correct image file format',
+            'branch_id.required' => 'Please select user branch',
         ];
     }
 }

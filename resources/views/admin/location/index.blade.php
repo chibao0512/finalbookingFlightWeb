@@ -32,7 +32,7 @@
                                 <div class="row">
                                     <div class="col-sm-12 col-md-3">
                                         <div class="form-group">
-                                            <input type="text" name="name" class="form-control mg-r-15" placeholder="Tên or mã địa điểm">
+                                            <input type="text" name="name" class="form-control mg-r-15" placeholder="Name or location code">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-3">

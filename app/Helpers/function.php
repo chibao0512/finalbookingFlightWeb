@@ -1,6 +1,9 @@
 <?php
 use Carbon\Carbon;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+
 function randString($length)
 {
     $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -55,7 +58,7 @@ if (!function_exists('formatDate')) {
 if (!function_exists('get_data_user')) {
     function get_data_user($type, $field = 'id')
     {
-        return \Auth::guard($type)->user() ? Auth::guard($type)->user()->$field : '';
+        return Auth::guard($type)->user() ? Auth::guard($type)->user()->$field : '';
     }
 }
 
@@ -102,7 +105,7 @@ if (!function_exists('upload_image')) {
         if ($folder)
             $path = public_path() . '/uploads/' . $folder . '/' . date('Y/m/d/');
 
-        if (!\File::exists($path))
+        if (!File::exists($path))
             mkdir($path, 0777, true);
 
         // di chuyen file vao thu muc uploads

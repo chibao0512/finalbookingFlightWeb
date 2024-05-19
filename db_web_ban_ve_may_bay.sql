@@ -598,12 +598,12 @@ CREATE TABLE `transports` (
 --
 
 INSERT INTO `transports` (`id`, `airline_company_id`, `title`, `price`, `weight`, `created_at`, `updated_at`) VALUES
-(1, 4, 'Mua 15kg - 232,000 đ', 232000, 15, NULL, NULL),
-(2, 4, 'Mua 20kg - 270,000 đ', 270000, 20, NULL, NULL),
-(3, 4, 'Mua 25kg - 325,000 đ', 325000, 25, NULL, NULL),
-(4, 4, 'Mua 30kg - 380,000 đ', 380000, 30, NULL, NULL),
-(5, 4, 'Mua 35kg - 435,000 đ', 435000, 35, NULL, NULL),
-(6, 4, 'Mua 40kg - 490,000 đ', 490000, 40, NULL, NULL);
+(1, 4, 'Buy 15kg - 232,000 đ', 232000, 15, NULL, NULL),
+(2, 4, 'Buy 20kg - 270,000 đ', 270000, 20, NULL, NULL),
+(3, 4, 'Buy 25kg - 325,000 đ', 325000, 25, NULL, NULL),
+(4, 4, 'Buy 30kg - 380,000 đ', 380000, 30, NULL, NULL),
+(5, 4, 'Buy 35kg - 435,000 đ', 435000, 35, NULL, NULL),
+(6, 4, 'Buy 40kg - 490,000 đ', 490000, 40, NULL, NULL);
 
 -- --------------------------------------------------------
 

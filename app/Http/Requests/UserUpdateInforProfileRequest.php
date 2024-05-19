@@ -37,14 +37,14 @@ class UserUpdateInforProfileRequest extends FormRequest
     public function messages()
     {
         return [
-            'first_name.required' => 'Vui lòng nhập vào họ và tên lót',
-            'last_name.required' => 'Vui lòng nhập vào tên',
-            'email.required' => 'Vui lòng nhập vào email',
-            'email.email' => 'Định dạng email không chính xác',
-            'email.unique' => 'Địa chỉ email đã bị trùng',
-            'phone.required' => 'Vui lòng nhập vào số điện thoại',
-            'landline_telephone.required' => 'Vui lòng nhập vào số nội bộ',
-            'department_id.required' => 'Vui lòng chọn phòng ban trực thuộc hiện tại',
+            'first_name.required' => 'Please enter first and middle name',
+            'last_name.required' => 'Please enter a name',
+            'email.required' => 'Please enter email',
+            'email.email' => 'Email format is incorrect',
+            'email.unique' => 'Email address has been duplicated',
+            'phone.required' => 'Please enter a phone number',
+            'landline_telephone.required' => 'Please enter an extension number',
+            'department_id.required' => 'Please select your current department',
         ];
     }
 }

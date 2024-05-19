@@ -35,10 +35,10 @@ class RolesRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Vui lòng nhập vào tên vai trò',
-            'name.unique' => 'Tên vai trò không thể trùng lặp',
-            'name.max' => 'Tên vai trò vượt quá số ký tự cho phép',
-            'description.max' => 'Mô tả vượt quá số ký tự cho phép',
+            'name.required' => 'Please enter role name',
+            'name.unique' => 'Role name cannot be duplicated',
+            'name.max' => 'Role name exceeds the allowed number of characters',
+            'description.max' => 'Description exceeds the allowed number of characters',
         ];
     }
 }

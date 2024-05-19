@@ -8,6 +8,8 @@ use App\Http\Requests\RolesRequest;
 use App\Models\Role;
 use App\Models\GroupPermission;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+
 
 class RoleController extends Controller
 {
@@ -51,7 +53,7 @@ class RoleController extends Controller
     public function store(RolesRequest $request)
     {
         //
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $role = new Role();
             $role->name = safeTitle($request->name);
@@ -61,15 +63,15 @@ class RoleController extends Controller
             if ($role->save()) {
                 if(!empty($request->permissions)) {
                     foreach($request->permissions as $permission) {
-                        \DB::table('permission_role')->insert(['permission_id'=> $permission, 'role_id'=> $role->id]);
+                        DB::table('permission_role')->insert(['permission_id'=> $permission, 'role_id'=> $role->id]);
                     }
                 }
             }
 
-            \DB::commit();
-            return redirect()->back()->with('success', 'Thêm mới thành công');
+            DB::commit();
+            return redirect()->back()->with('success', 'Create new successfully ');
         } catch (\Exception $exception) {
-            \DB::rollBack();
+            DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
         }
     }
@@ -84,7 +86,7 @@ class RoleController extends Controller
     {
         //
         $role = Role::find($id);
-        $listPermission = \DB::table('permission_role')->where('role_id', $id)->pluck('permission_id')->toArray();
+        $listPermission = DB::table('permission_role')->where('role_id', $id)->pluck('permission_id')->toArray();
         $permissionGroups = GroupPermission::select('*')->with('permissions')->get();
 
         if(!$role) {
@@ -109,7 +111,7 @@ class RoleController extends Controller
     public function update(Request $request, $id)
     {
         //
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $role = Role::find($id);
             $role->name = safeTitle($request->name);
@@ -117,19 +119,19 @@ class RoleController extends Controller
 
             if ($role->save()) {
                 if(!empty($request->permissions)) {
-                    \DB::table('permission_role')->where('role_id', $id)->delete();
+                    DB::table('permission_role')->where('role_id', $id)->delete();
                     if(!empty($request->permissions)) {
                         foreach($request->permissions as $permission) {
-                            \DB::table('permission_role')->insert(['permission_id'=> $permission, 'role_id'=> $role->id]);
+                            DB::table('permission_role')->insert(['permission_id'=> $permission, 'role_id'=> $role->id]);
                         }
                     }
                 }
             }
 
-            \DB::commit();
-            return redirect()->back()->with('success', 'Chỉnh sửa thành công');
+            DB::commit();
+            return redirect()->back()->with('success', 'Update successfully');
         } catch (\Exception $exception) {
-            \DB::rollBack();
+            DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
         }
     }
@@ -150,7 +152,7 @@ class RoleController extends Controller
 
         try {
             $role->delete();
-            return redirect()->back()->with('success', 'Xóa thành công');
+            return redirect()->back()->with('success', 'Delete successfully');
         } catch (\Exception $exception) {
             return redirect()->back()->with('error', 'Đã xảy ra lỗi không thể xóa dữ liệu');
         }

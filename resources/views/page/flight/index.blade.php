@@ -49,7 +49,7 @@
                                                 <span class="icon-heart"></span>
                                             </a>
                                         </div>
-                                        <a href="{{ route('flight.book.ticket', $flight->id) }}" class="btn btn-primary py-2">Đặt vé </a>
+                                        <a href="{{ route('flight.book.ticket', $flight->id) }}" class="btn btn-primary py-2">Book </a>
                                     </div>
                                 </div>
                             @endforeach

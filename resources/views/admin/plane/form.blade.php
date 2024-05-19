@@ -7,14 +7,14 @@
                     <!-- form start -->
                     <div class="card-body">
                         <div class="form-group {{ $errors->first('code_no') ? 'has-error' : '' }} ">
-                            <label for="inputEmail3" class="control-label default">Flight code <sup class="text-danger">(*)</sup></label>
+                            <label for="inputEmail3" class="control-label default">Plane code <sup class="text-danger">(*)</sup></label>
                             <div>
                                 <input type="text" maxlength="100" class="form-control"  placeholder="Flight code" name="code_no" value="{{ old('code_no',isset($plane) ? $plane->code_no : '') }}">
                                 <span class="text-danger "><p class="mg-t-5">{{ $errors->first('code_no') }}</p></span>
                             </div>
                         </div>
                         <div class="form-group {{ $errors->first('name') ? 'has-error' : '' }} ">
-                            <label for="inputEmail3" class="control-label default">Flight name <sup class="text-danger">(*)</sup></label>
+                            <label for="inputEmail3" class="control-label default">Plane name <sup class="text-danger">(*)</sup></label>
                             <div>
                                 <input type="text" class="form-control"  placeholder="Flight name" name="name" value="{{ old('name',isset($plane) ? $plane->name : '') }}">
                                 <span class="text-danger "><p class="mg-t-5">{{ $errors->first('name') }}</p></span>
@@ -51,7 +51,7 @@
                         <div class="form-group">
                             <label>Airline <sup class="text-danger">(*)</sup></label>
                             <select class="custom-select" name="airline_company_id">
-                                <option value="">Chọn Airline</option>
+                                <option value="">Choose Airline</option>
                                 @foreach($airline_companies as $airline_company)
                                     <option
                                             {{old('airline_company_id', isset($plane->airline_company_id) ? $plane->airline_company_id : '') == $airline_company->id ? 'selected="selected"' : ''}}

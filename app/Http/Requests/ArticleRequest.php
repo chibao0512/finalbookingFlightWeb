@@ -35,13 +35,13 @@ class ArticleRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Dữ liệu không thể để trống',
-            'name.unique' => 'Dữ liệu đã bị trùng',
-            'name.max' => 'Vượt quá số ký tự cho phép',
-            'category_id.required' => 'Dữ liệu không thể để trống',
-            'description.max' => 'Vượt quá số ký tự cho phép',
-            'images.image' => 'Vui lòng nhập đúng định dạng file ảnh',
-            'images.mimes' => 'Vui lòng nhập đúng định dạng file ảnh',
+            'name.required' => 'Data cannot be empty',
+            'name.unique' => 'Data has been duplicated',
+            'name.max' => 'Exceeded the allowed number of characters',
+            'category_id.required' => 'Data cannot be empty',
+            'description.max' => 'Exceeded the allowed number of characters',
+            'images.image' => 'Please enter the correct image file format',
+            'images.mimes' => 'Please enter the correct image file format',
         ];
     }
 }

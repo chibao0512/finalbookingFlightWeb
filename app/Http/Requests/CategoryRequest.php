@@ -32,9 +32,9 @@ class CategoryRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Dữ liệu không thể để trống',
-            'name.unique' => 'Dữ liệu đã bị trùng',
-            'name.max' => 'Vượt quá số ký tự cho phép',
+            'name.required' => 'Data cannot be empty',
+            'name.unique' => 'Data has been duplicated',
+            'name.max' => 'Exceeded the allowed number of characters',
         ];
     }
 }

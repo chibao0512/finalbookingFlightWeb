@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Airport;
 use App\Models\Location;
 use App\Http\Requests\AirportRequest;
+use Illuminate\Support\Facades\DB;
+
 
 class AirportController extends Controller
 {
@@ -64,13 +66,13 @@ class AirportController extends Controller
     public function store(AirportRequest $request)
     {
         //
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $this->airport->createOrUpdate($request);
-            \DB::commit();
-            return redirect()->back()->with('success', 'Lưu dữ liệu thành công');
+            DB::commit();
+            return redirect()->back()->with('success', 'Save Successfully');
         } catch (\Exception $exception) {
-            \DB::rollBack();
+            DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
         }
     }
@@ -87,7 +89,7 @@ class AirportController extends Controller
         $airport = Airport::findOrFail($id);
 
         if (!$airport) {
-            return redirect()->back()->with('error', 'Dữ liệu không tồn tại');
+            return redirect()->back()->with('error', 'Save Successfully');
         }
 
         return view('admin.airport.edit', compact('airport'));
@@ -103,13 +105,13 @@ class AirportController extends Controller
     public function update(AirportRequest $request, $id)
     {
         //
-        \DB::beginTransaction();
+        DB::beginTransaction();
         try {
             $this->airport->createOrUpdate($request, $id);
-            \DB::commit();
-            return redirect()->back()->with('success', 'Lưu dữ liệu thành công');
+            DB::commit();
+            return redirect()->back()->with('success', 'Save Successfully');
         } catch (\Exception $exception) {
-            \DB::rollBack();
+            DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
         }
     }
@@ -130,7 +132,7 @@ class AirportController extends Controller
 
         try {
             $airport->delete();
-            return redirect()->back()->with('success', 'Xóa thành công');
+            return redirect()->back()->with('success', 'Delete successfully');
         } catch (\Exception $exception) {
             return redirect()->back()->with('error', 'Đã xảy ra lỗi không thể xóa dữ liệu');
         }

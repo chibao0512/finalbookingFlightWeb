@@ -34,15 +34,15 @@ class AirlineCompanyRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Dữ liệu không thể để trống',
-            'name.unique' => 'Dữ liệu đã bị trùng',
-            'name.max' => 'Vượt quá số ký tự cho phép',
-            'code_no.required' => 'Dữ liệu không thể để trống',
-            'code_no.unique' => 'Dữ liệu đã bị trùng',
-            'code_no.max' => 'Vượt quá số ký tự cho phép',
-            'images.image' => 'Vui lòng nhập đúng định dạng file ảnh',
-            'images.mimes' => 'Vui lòng nhập đúng định dạng file ảnh',
-            'images.max' => 'Vượt quá kích thước cho phép',
+            'name.required' => 'Data cannot be empty',
+            'name.unique' => 'Data has been duplicated',
+            'name.max' => 'Exceeded the allowed number of characters',
+            'code_no.required' => 'Data cannot be empty',
+            'code_no.unique' => 'Data has been duplicated',
+            'code_no.max' => 'Exceeded the allowed number of characters',
+            'images.image' => 'Please enter the correct image file format',
+            'images.mimes' => 'Please enter the correct image file format',
+            'images.max' => 'Exceeded size allowed',
         ];
     }
 }

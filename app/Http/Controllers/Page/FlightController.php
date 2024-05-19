@@ -15,6 +15,7 @@ use App\Http\Requests\TransportRequest;
 use App\Http\Requests\BookTicketRequest;
 use App\Http\Requests\PaymentRequest;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 class FlightController extends Controller
 {
@@ -323,8 +324,8 @@ class FlightController extends Controller
             'tax_percentage' => $flight->tax_percentage,
             'type' => $dataSearch['type'] ?? 1,
         ];
-        if (\Auth::guard('user')->check()) {
-            $data['user_id'] = \Auth::guard('user')->id();
+        if (Auth::guard('user')->check()) {
+            $data['user_id'] = Auth::guard('user')->id();
         }
         $price = isset($dataSearch['ticket_class']) && $dataSearch['ticket_class'] == 2 ? $flight->price_vip : $flight->price;
         $data['price'] = $price;
@@ -355,7 +356,7 @@ class FlightController extends Controller
         $data['created_at'] = $data['updated_at'] = Carbon::now();
 
         try {
-            \DB::beginTransaction();
+            DB::beginTransaction();
 
             $transactionId =  Transaction::insertGetId($data);
 
@@ -400,10 +401,10 @@ class FlightController extends Controller
                 }
             }
             session()->forget('request_search');
-            \DB::commit();
+            DB::commit();
             return redirect()->route('flight.payment', $transactionId);
         } catch (\Exception $exception) {
-            \DB::rollBack();
+            DB::rollBack();
             Log::info('book ticket exception'. json_encode(['exception' => $exception->getMessage()]));
             return redirect()->back()->with('error', 'Đã xảy ra lỗi không thể book vé máy bay');
         }
@@ -455,13 +456,13 @@ class FlightController extends Controller
                     }
                 }
 
-                return redirect()->route('user.home.index')->with('success', 'Đặt vé thành công chờ chúng tôi xác nhận');
+                return redirect()->route('user.home.index')->with('success', 'Ticket booking successful, waiting for our confirmation');
             } else {
                 session(['seats' => $seats]);
                 return $this->paymentOnline($transaction);
             }
         } catch (\Exception $exception) {
-            return redirect()->route('user.home.index')->with('error', 'Đã xảy ra lỗi không thể thực hiện đặt vé máy bay');
+            return redirect()->route('user.home.index')->with('error', 'An error occurred and the flight booking could not be made');
         }
     }
 
@@ -526,7 +527,7 @@ class FlightController extends Controller
     {
         if (session()->has('seats') && $request->vnp_ResponseCode == '00') {
             //
-            \DB::beginTransaction();
+            DB::beginTransaction();
             try {
                 $vnpayData = $request->all();
                 $seats = session()->get('seats');
@@ -561,15 +562,15 @@ class FlightController extends Controller
                     }
                 }
                 session()->forget('seats');
-                \DB::commit();
+                DB::commit();
                 return view('page/vnpay/vnpay_return', compact('vnpayData'));
             } catch (\Exception $exception) {
 
-                \DB::rollBack();
-                return redirect()->route('user.home.index')->with('error', 'Đặt vé máy bay không thành công.');
+                DB::rollBack();
+                return redirect()->route('user.home.index')->with('error', 'Booking ticket flight not successful.');
             }
         } else {
-            return redirect()->route('user.home.index')->with('error', 'Đặt vé máy bay không thành công.');
+            return redirect()->route('user.home.index')->with('error', 'Booking ticket flight not successful.');
         }
     }
 }

@@ -34,9 +34,9 @@ class TransportRequest extends FormRequest
     public function messages()
     {
         return [
-            'flight_id.required' => 'Dữ liệu không thể để trống',
-            'transport_id.required' => 'Dữ liệu không thể để trống',
-            'transport_key.required' => 'Dữ liệu không thể để trống',
+            'flight_id.required' => 'Data cannot be empty',
+            'transport_id.required' => 'Data cannot be empty',
+            'transport_key.required' => 'Data cannot be empty',
         ];
     }
 }

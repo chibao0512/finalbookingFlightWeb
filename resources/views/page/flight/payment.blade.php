@@ -80,21 +80,21 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <h2 class="ftco-heading-2" style="text-transform: uppercase; margin-top: 15px">Thông tin thanh toán</h2>
+                                <h2 class="ftco-heading-2" style="text-transform: uppercase; margin-top: 15px">Payment Information</h2>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label for="option-payment-1"><input type="radio" id="option-payment-1" name="payment_method" value="payment" {{ old('payment_method') == null ? 'checked' : '' }} {{ old('payment_method') == 'payment' ? 'checked' : '' }}> Chuyển khoản (vui lòng chuyển khoản theo thông tin và chờ xác nhận)</label>
+                                        <label for="option-payment-1"><input type="radio" id="option-payment-1" name="payment_method" value="payment" {{ old('payment_method') == null ? 'checked' : '' }} {{ old('payment_method') == 'payment' ? 'checked' : '' }}> Transfer (Please transfer according to the information and wait for confirmation)</label>
                                         <div>
                                             <p>Transfer name: B-Air online airline ticket </p>
                                             <p>Price : <b>{{ number_format($transaction->total_money,0,',','.') }} vnđ</b></p>
-                                            <p>Content : {{ $transaction->code_no }}</p>
+                                            <p>Code Transaction : {{ $transaction->code_no }}</p>
                                             <p>Bank : Agribank</p>
                                             <p>Account number : 1111111111</p>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         @csrf
-                                        <label for="option-payment-2"><input type="radio" id="option-payment-2" name="payment_method" value="payment-online" {{ old('payment_method') == 'payment-online' ? 'checked' : '' }}> Thanh toán online</label>
+                                        <label for="option-payment-2"><input type="radio" id="option-payment-2" name="payment_method" value="payment-online" {{ old('payment_method') == 'payment-online' ? 'checked' : '' }}> Payment online</label>
                                     </div>
                                     <div style="width: 100%">
                                         <div class="col-sm-12 col-md-4 col-lg-4" style="float: right; margin-bottom: 15px">
@@ -112,8 +112,8 @@
                             </div>
                         </div>
                         <div class="sidebar-box bg-white p-4 ftco-animate fadeInUp ftco-animated" bis_skin_checked="1">
-                            <h2 class="ftco-heading-2" style="text-transform: uppercase">Chọn ghế</h2>
-                            <p>Máy bay : {{ $transaction->flight->plane->name }} ({{ $transaction->flight->code_no }})</p>
+                            <h2 class="ftco-heading-2" style="text-transform: uppercase">Chosse Seat</h2>
+                            <p>Flight : {{ $transaction->flight->plane->name }} ({{ $transaction->flight->code_no }})</p>
                             @if ($errors->first('seats'))
                                 <span class="text-danger">{{ $errors->first('seats') }}</span>
                             @endif
