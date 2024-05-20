@@ -1,5 +1,5 @@
 @extends('page.layouts.page')
-@php $title =  'ABAY.VN - Thay đổi mật khẩu' @endphp
+@php $title =  'ABAY.VN - Change password' @endphp
 @section('title', $title)
 @section('style')
 @stop

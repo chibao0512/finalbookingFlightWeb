@@ -24,7 +24,6 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-
     /**
      * Where to redirect users after login.
      *
@@ -33,8 +32,16 @@ class LoginController extends Controller
     protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
+     * The User model instance.
+     *
+     * @var \App\Models\User
+     */
+    protected $user;
+
+    /**
      * Create a new controller instance.
      *
+     * @param \App\Models\User $user
      * @return void
      */
     public function __construct(User $user)
@@ -43,9 +50,14 @@ class LoginController extends Controller
         $this->user = $user;
     }
 
+    /**
+     * Show the admin login form.
+     *
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     */
     public function login()
     {
-        if (\Auth::check()) {
+        if (Auth::check()) {
             return redirect()->back();
         }
 
@@ -53,9 +65,9 @@ class LoginController extends Controller
     }
 
     /**
-     * Xử lý thực hiện đăng nhập trang admin
+     * Handle the admin login request.
      *
-     * @param LoginRequest $request
+     * @param \App\Http\Requests\LoginRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function postLogin(LoginRequest $request)
@@ -70,15 +82,9 @@ class LoginController extends Controller
         if ($user->status == User::LOCK) {
             return redirect()->back()->with('error', 'Tài khoản của bạn đã bị khóa');
         }
+
         if (Auth::attempt($data)) {
             return redirect()->route('admin.home');
         }
-        return redirect()->back()->with('error', 'Đăng nhập thất bại.');
-    }
-
-    public function logout()
-    {
-        Auth::logout();
-        return redirect()->route('admin.login');
     }
 }

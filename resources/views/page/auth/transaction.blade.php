@@ -1,5 +1,5 @@
 @extends('page.layouts.page')
-@php $title =  'ABAY.VN - Danh sách chuyến bay đã đặt' @endphp
+@php $title =  'ABAY.VN - Booked flight history' @endphp
 @section('title', $title)
 @section('style')
 @stop
@@ -17,7 +17,7 @@
                                 <form action="" style="margin-left: 15px;">
                                     <div class="form-group d-flex">
                                         <input type="text" class="form-control" placeholder="Transaction code" name="code_no">
-                                        <input type="submit" value="Tìm kiếm" class="submit btn-primary">
+                                        <input type="submit" value="Search" class="submit btn-primary">
                                     </div>
                                 </form>
                             </div>
@@ -59,13 +59,13 @@
                                                 <p style="margin-bottom: 0px;">{{ $transaction->email }}</p>
                                                 @endif
                                                 @if ($transaction->adult)
-                                                    <p style="margin-bottom: 0px;">Người lớn : {{ $transaction->adult }}</p>
+                                                    <p style="margin-bottom: 0px;">Adult : {{ $transaction->adult }}</p>
                                                 @endif
                                                 @if ($transaction->children)
-                                                    <p style="margin-bottom: 0px;">Trẻ em : {{ $transaction->children }}</p>
+                                                    <p style="margin-bottom: 0px;">Children : {{ $transaction->children }}</p>
                                                 @endif
                                                 @if ($transaction->baby)
-                                                    <p style="margin-bottom: 0px;">Em bé : {{ $transaction->baby }}</p>
+                                                    <p style="margin-bottom: 0px;">Baby : {{ $transaction->baby }}</p>
                                                 @endif
                                                 <p style="margin-bottom: 0px;">Payment type : {{ $transaction->payment_method == 'payment' ? 'Transfer' : 'Payment online' }}</p>
                                                 <p style="margin-bottom: 0px;">Status : {{ isset($status[$transaction->status]) ? $status[$transaction->status] : '' }}</p>
