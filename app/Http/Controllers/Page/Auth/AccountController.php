@@ -35,10 +35,10 @@ class AccountController extends Controller
             $user->address = $request->address;
             $user->save();
             DB::commit();
-            return redirect()->back()->with('success', 'Cập nhật thành công.');
+            return redirect()->back()->with('success', 'Update successfull.');
         } catch (\Exception $exception) {
             DB::rollBack();
-            return redirect()->back()->with('error', 'Đã xảy ra lỗi không thể cập nhật tài khoản');
+            return redirect()->back()->with('error', 'An error occurred and the account could not be updated');
         }
     }
 
@@ -56,10 +56,10 @@ class AccountController extends Controller
             $user->save();
             DB::commit();
             Auth::guard('users')->logout();
-            return redirect()->route('page.user.account')->with('success', 'Đổi mật khẩu thành công.');
+            return redirect()->route('page.user.account')->with('success', 'Password changed successfully.');
         } catch (\Exception $exception) {
             DB::rollBack();
-            return redirect()->back()->with('error', 'Đã xảy ra lỗi không thể đổi mật khẩu');
+            return redirect()->back()->with('error', 'An error occurred and the password cannot be changed');
         }
     }
 

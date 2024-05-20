@@ -9,35 +9,15 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
     protected $user;
     use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
     protected $redirectTo = RouteServiceProvider::HOME;
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct(User $user)
     {
         $this->middleware('guest')->except('logout');
@@ -48,77 +28,75 @@ class LoginController extends Controller
     {
         try {
             $request->validate([
-                'email' => 'required',
+                'email' => 'required|email',
                 'password' => 'required'
             ]);
 
-            $credentials = [
-                'email' => $request->email,
-                'password' => $request->password
-            ];
+            $credentials = $request->only('email', 'password');
 
-            $user = $this->user->getInfoEmail($credentials['email']);
+            $user = $this->user->where('email', $credentials['email'])->first();
 
             if (!$user) {
-                return response([
+                return response()->json([
                     "code" => 400,
-                    "message" => "Thất bại",
-                ]);
+                    "message" => "User not found.",
+                ], 400);
             }
 
             if ($user->status == User::LOCK) {
-                return response([
+                return response()->json([
                     "code" => 403,
-                    "message" => "Tài khoản đã bị khóa",
-                ]);
+                    "message" => "Account is locked.",
+                ], 403);
+            }
+
+            if (!Hash::check($credentials['password'], $user->password)) {
+                return response()->json([
+                    "code" => 400,
+                    "message" => "Invalid credentials.",
+                ], 400);
             }
 
             $token = auth('api')->attempt($credentials);
 
             if ($token) {
-                $user = auth('api')->user()->toArray();
-                $user['token'] = $token;
-                return response([
+                $userArray = $user->toArray();
+                $userArray['token'] = $token;
+                return response()->json([
                     "code" => 200,
-                    "data" => $user,
-                    "message" => "Thành công",
-                ]);
+                    "data" => $userArray,
+                    "message" => "Login successful.",
+                ], 200);
             } else {
-                return response([
+                return response()->json([
                     "code" => 400,
-                    "message" => "Thất bại",
-                ]);
+                    "message" => "Login failed.",
+                ], 400);
             }
         } catch (\Exception $e) {
-            return response([
+            return response()->json([
                 "code" => 400,
-                "message" => "Thất bại",
-            ]);
+                "message" => "An error occurred during login.",
+                "error" => $e->getMessage(),
+            ], 400);
         }
-
     }
 
-    /**
-     * Log the user out of the application.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
-     */
     public function logout(Request $request)
     {
         try {
             $accessToken = JWTAuth::getToken();
             JWTAuth::invalidate($accessToken);
-            return response([
+            return response()->json([
                 "code" => 200,
-                "message" => "Thành công",
-            ]);
+                "message" => "Logout successful.",
+            ], 200);
         } catch (\Exception $e) {
-            return response([
+            return response()->json([
                 "code" => 400,
-                "message" => "Thất bại",
-            ]);
+                "message" => "Logout failed.",
+                "error" => $e->getMessage(),
+            ], 400);
         }
-
     }
 }

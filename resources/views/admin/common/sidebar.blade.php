@@ -94,7 +94,7 @@
                 <li class="nav-item has-treeview {{ isset($data_article_active) ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ isset($data_article_active) ? $data_article_active : '' }}">
                         <i class="nav-icon nav-icon fas fa-file-word"></i>
-                        <p>News<i class="fas fa-angle-left right"></i></p>
+                        <p>Articles<i class="fas fa-angle-left right"></i></p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
@@ -115,7 +115,7 @@
                 <li class="nav-item">
                     <a href="{{ route('transaction.index') }}" class="nav-link {{ isset($transaction_active) ? $transaction_active : '' }}">
                         <i class="nav-icon fas fa-cart-plus" aria-hidden="true"></i>
-                        <p>Manage Booking Ticet</p>
+                        <p>Manage Booking Ticket</p>
                     </a>
                 </li>
 

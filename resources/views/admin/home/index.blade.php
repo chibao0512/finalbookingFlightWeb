@@ -171,7 +171,7 @@
                                 @foreach($transactions as $key => $transaction)
                                     <tr>
                                         <th style="vertical-align: middle">{{ $key + 1 }}</th>
-                                        <th style="vertical-align: middle"><a href="{{ route('transaction.show.tickets', $transaction->id) }}" class="show-ticket">{{ $transaction->code_no }}</a></th>
+                                        <th style="vertical-align: middle">{{ $transaction->code_no }}</th>
                                         <td style="vertical-align: middle">
                                             <p style="margin-bottom: 0px;">Flight : {{ $transaction->flight->plane->name }} ({{ $transaction->flight->plane->code_no }})</p>
                                             <p style="margin-bottom: 0px;">

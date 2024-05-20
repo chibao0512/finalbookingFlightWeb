@@ -111,7 +111,7 @@
                                     <th scope="col">Seat</th>
                                     <th scope="col">Data of birth</th>
                                     <th scope="col">CCCD</th>
-                                    <th scope="col">Booking more</th>
+                                    <th scope="col">Luggage more</th>
                                 </tr>
                             </thead>
                             <tbody id="model-ticket-content">
@@ -120,7 +120,7 @@
                         </table>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 @extends('admin.layouts.main')
-@section('title', 'Đổi mật khẩu | Quản lý phiếu')
+@section('title', 'Change Password')
 @section('content')
     <section class="content-header">
         <div class="container-fluid">
