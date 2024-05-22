@@ -190,10 +190,10 @@ Route::group(['namespace' => 'Page'], function() {
     });
 
     Route::group(['middleware' =>['user'], 'namespace' => 'Auth'], function() {
-        Route::get('thong-tin-tai-khoan.html', 'AccountController@infoAccount')->name('info.account');
-        Route::get('danh-sach-giao-dich.html', 'AccountController@transactionUser')->name('users.transactions');
+        Route::get('account-information.html', 'AccountController@infoAccount')->name('info.account');
+        Route::get('lits-transaction.html', 'AccountController@transactionUser')->name('users.transactions');
         Route::post('/update/info/account', 'AccountController@updateInfoAccount')->name('update.info.account');
-        Route::get('thay-doi-mat-khau', 'AccountController@changePassword')->name('change.password');
+        Route::get('change-password', 'AccountController@changePassword')->name('change.password');
         Route::post('change/password', 'AccountController@postChangePassword')->name('post.change.password');
 
         Route::post('show/tickets/{id}', 'AccountController@showTicket')->name('show.tickets');
@@ -201,10 +201,10 @@ Route::group(['namespace' => 'Page'], function() {
 
     Route::get('/', 'HomeController@index')->name('user.home.index');
 
-    Route::get('/tin-tuc.html', 'CategoryController@articles')->name('user.category.articles');
-    Route::get('/tin-tuc/{id}/{slug}.html', 'CategoryController@index')->name('user.category.index');
+    Route::get('/blog.html', 'CategoryController@articles')->name('user.category.articles');
+    Route::get('/blog/{id}/{slug}.html', 'CategoryController@index')->name('user.category.index');
 
-    Route::get('/chi-tiet/{id}/{slug}.html', 'CategoryController@articleDetail')->name('user.article.detail');
+    Route::get('/detail/{id}/{slug}.html', 'CategoryController@articleDetail')->name('user.article.detail');
 
     Route::group(['prefix' => 'flight'], function(){
 

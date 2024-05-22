@@ -179,7 +179,7 @@
                                                 <span><img src="{{ asset('page/images/icon/arrow-right.svg') }}" alt="" style="margin-left: 10px; margin-right: 10px"></span>
                                                 <span>{{ isset($transaction->flight->end_location) ? $transaction->flight->end_location->name : '' }}</span>
                                             </p>
-                                            <p style="margin-bottom: 0px;">Time : {{ getDateTime($language = "vn", $getDay = 1, $getDate = 1, $getTime = 0, $timeZone = "GMT+7", strtotime($transaction->start_day))}}</p>
+                                            <p style="margin-bottom: 0px;">Time : {{ getDateTime($language = "en", $getDay = 1, $getDate = 1, $getTime = 0, $timeZone = "GMT+7", strtotime($transaction->start_day))}}</p>
                                             <p style="margin-bottom: 0px;">{{ date('H:i', strtotime($transaction->start_day)) }} - {{ date('H:i', strtotime($transaction->end_day)) }}</p>
                                             <p style="margin-bottom: 0px;">Ticket type: {{ $types[$transaction->type] ?? '' }}</p>
                                             <p style="margin-bottom: 0px;">Ticket class : {{ $ticket_class[$transaction->type] ?? '' }}</p>

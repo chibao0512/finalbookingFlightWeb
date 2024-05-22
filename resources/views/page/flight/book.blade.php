@@ -27,7 +27,7 @@
                         </div>
                         <div class="col-sm-12 col-lg-3 ">
                             <div style="margin-top:15px ">
-                                <p>{{ getDateTime($language = "vn", $getDay = 1, $getDate = 1, $getTime = 0, $timeZone = "GMT+7", strtotime($flight->start_day))}}</p>
+                                <p>{{ getDateTime($language = "en", $getDay = 1, $getDate = 1, $getTime = 0, $timeZone = "GMT+7", strtotime($flight->start_day))}}</p>
                                 <p>{{ date('H:i', strtotime($flight->start_day)) }} - {{ date('H:i', strtotime($flight->end_day)) }}</p>
                             </div>
                         </div>
@@ -123,7 +123,7 @@
 
                         </div>
                         <div class="col-sm-12 col-lg-4">
-                            <p class="text-center">{{ getDateTime($language = "vn", $getDay = 1, $getDate = 1, $getTime = 0, $timeZone = "GMT+7", strtotime($flight->start_day))}}  {{ date('H:i', strtotime($flight->start_day)) }}</p>
+                            <p class="text-center">{{ getDateTime($language = "en", $getDay = 1, $getDate = 1, $getTime = 0, $timeZone = "GMT+7", strtotime($flight->start_day))}}  {{ date('H:i', strtotime($flight->start_day)) }}</p>
                             <p class="text-center">
                                 <span>{{ isset($flight->start_location) ? $flight->start_location->code_no : '' }}</span>
                                 <span><img src="{{ asset('page/images/icon/arrow-right.svg') }}" alt="" style="margin-left: 10px; margin-right: 10px"></span>

@@ -2,7 +2,7 @@
     <form role="form" action="" method="post" enctype="multipart/form-data">
         @csrf
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-9">
                 <div class="card card-primary">
                     <!-- form start -->
                     <div class="card-body">
@@ -62,7 +62,7 @@
                     <!-- /.card-body -->
                 </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title"> Action</h3>

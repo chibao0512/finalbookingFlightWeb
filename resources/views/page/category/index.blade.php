@@ -20,7 +20,7 @@
                                     <p class="mb-2">
                                         {{ the_excerpt($article->description, 200) }}
                                     </p>
-                                    <span class="seen">{{ getDateTime($language = "vn", $getDay = 1, $getDate = 1, $getTime = 0, $timeZone = "GMT+7", strtotime($article->created_at)) }}</span>
+                                    <span class="seen">{{ getDateTime($language = "en", $getDay = 1, $getDate = 1, $getTime = 0, $timeZone = "GMT+7", strtotime($article->created_at)) }}</span>
                                     <p><a href="{{ route('user.article.detail', ['id' => $article->id, 'slug' => $article->slug]) }}" class="btn btn-primary">More</a></p>
                                 </div>
                             </div>

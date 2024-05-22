@@ -27,7 +27,7 @@
                                                 </span>
                                             </span>
                                             <h4 class="mr-3 text-black">
-                                                <span style="font-size: 14px;">{{ getDateTime($language = "vn", $getDay = 1, $getDate = 1, $getTime = 0, $timeZone = "GMT+7", strtotime($flight->start_day))}}</span>
+                                                <span style="font-size: 14px;">{{ getDateTime($language = "en", $getDay = 1, $getDate = 1, $getTime = 0, $timeZone = "GMT+7", strtotime($flight->start_day))}}</span>
                                                 <span style="font-size: 14px; margin-left: 15px">{{ number_format($flight->price,0,',','.') }} vnđ</span>
                                             </h4>
 

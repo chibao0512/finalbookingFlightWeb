@@ -31,7 +31,7 @@
                                     </div>
                                     <div class="col-sm-12 col-lg-6 ">
                                         <div style="margin-top:15px ">
-                                            <p>{{ getDateTime($language = "vn", $getDay = 1, $getDate = 1, $getTime = 0, $timeZone = "GMT+7", strtotime($transaction->flight->start_day))}}</p>
+                                            <p>{{ getDateTime($language = "en", $getDay = 1, $getDate = 1, $getTime = 0, $timeZone = "GMT+7", strtotime($transaction->flight->start_day))}}</p>
                                             <p>{{ date('H:i', strtotime($transaction->flight->start_day)) }} - {{ date('H:i', strtotime($transaction->flight->end_day)) }}</p>
                                             <p>Status : Wait for payment</p>
                                         </div>
